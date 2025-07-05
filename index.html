@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ハウスメーカー営業向け：お客様ヒアリングチェックリスト</title>
+    <title>ハウスメーカー営業向け：お客様ヒアリングチェックリスト（入力フォーム版）</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +12,7 @@
         body {
             font-family: 'Noto Sans JP', 'Inter', sans-serif;
         }
-        /* 印刷時にチェックボックスが正しく表示されるように調整 */
+        /* 印刷時にフォームの見た目を調整 */
         @media print {
             body {
                 -webkit-print-color-adjust: exact;
@@ -21,6 +21,11 @@
             .no-print {
                 display: none;
             }
+            input, textarea, select {
+                border: 1px solid #ccc !important;
+                background-color: #fff !important;
+            }
+            /* チェックボックスが正しく表示されるように調整 */
             .printable-checkbox {
                 width: 16px;
                 height: 16px;
@@ -50,14 +55,31 @@
             background-color: #f3f4f6; /* Tailwind's gray-100 */
             font-weight: 500;
         }
-        td:nth-child(3) {
+        td:last-child {
             text-align: center;
         }
-        .memo-area {
-            height: 80px;
+        input[type="text"], input[type="number"], select, textarea {
             width: 100%;
-            border: 1px dashed #ccc;
-            padding: 8px;
+            padding: 0.5rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+        }
+        .input-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .input-group input {
+            flex: 1;
+        }
+        .input-group span {
+            white-space: nowrap;
         }
     </style>
 </head>
@@ -85,49 +107,44 @@
                         <thead>
                             <tr>
                                 <th>質問項目</th>
-                                <th>回答・メモ欄</th>
+                                <th>ご回答欄</th>
                                 <th>チェック</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><strong>お名前・ご連絡先</strong></td>
-                                <td><div class="memo-area"></div></td>
+                                <td><textarea placeholder="お名前、ご住所、電話番号、メールアドレスなどをご記入ください。"></textarea></td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                             <tr>
                                 <td><strong>ご家族構成</strong><br><span class="text-sm text-gray-500">（同居予定の方全員）</span></td>
-                                <td>
-                                    ・続柄：<br>
-                                    ・ご年齢：<br>
-                                    ・ご職業：
-                                    <div class="memo-area mt-2"></div>
-                                </td>
+                                <td><textarea placeholder="例：&#10;夫：35歳 会社員&#10;妻：33歳 パート&#10;長男：5歳"></textarea></td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                              <tr>
                                 <td><strong>将来の家族構成の変化</strong><br><span class="text-sm text-gray-500">（お子様の予定、ご両親との同居など）</span></td>
-                                <td><div class="memo-area"></div></td>
+                                <td><textarea placeholder="例：5年以内に子供がもう一人欲しい。10年後くらいに親との同居を考えている。"></textarea></td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                             <tr>
                                 <td><strong>現在の働き方</strong><br><span class="text-sm text-gray-500">（リモートワークの頻度、通勤手段など）</span></td>
-                                <td><div class="memo-area"></div></td>
+                                <td><textarea placeholder="例：夫は週3日在宅ワーク。妻は電車通勤。"></textarea></td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                             <tr>
                                 <td><strong>ご趣味・休日の過ごし方</strong><br><span class="text-sm text-gray-500">（インドア、アウトドア、来客頻度など）</span></td>
-                                <td><div class="memo-area"></div></td>
+                                <td><textarea placeholder="例：休日は家族でキャンプに行くことが多い。月に1〜2回友人を招いて食事会をする。"></textarea></td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                             <tr>
                                 <td><strong>ペットの有無</strong><br><span class="text-sm text-gray-500">（種類、頭数、室内/室外飼い）</span></td>
-                                <td><div class="memo-area"></div></td>
+                                <td><input type="text" placeholder="例：トイプードル1匹（室内飼い）"></td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                              <tr>
                                 <td><strong>アレルギーの有無</strong></td>
-                                <td><div class="memo-area"></div></td>
+                                <td><input type="text" placeholder="例：妻が花粉症、長男がハウスダストアレルギー"></td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                         </tbody>
@@ -149,58 +166,75 @@
                         <thead>
                             <tr>
                                 <th>質問項目</th>
-                                <th>回答・メモ欄</th>
+                                <th>ご回答欄</th>
                                 <th>チェック</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><strong>現在の住形態</strong></td>
-                                <td>賃貸マンション / アパート / 戸建て / 社宅 / ご実家 / その他</td>
-                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
-                            </tr>
-                            <tr>
-                                <td><strong>居住年数</strong></td>
-                                <td>約＿＿＿＿年</td>
-                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
-                            </tr>
-                            <tr>
-                                <td><strong>間取り・広さ</strong></td>
-                                <td>＿＿LDK / ＿＿㎡</td>
-                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
-                            </tr>
-                            <tr>
-                                <td><strong>【費用関連】</strong><br>月々の家賃・管理費</td>
-                                <td>家賃：＿＿＿＿円 / 管理費・共益費：＿＿＿＿円</td>
-                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
-                            </tr>
-                             <tr>
-                                <td>駐車場代</td>
-                                <td>＿＿＿＿円 / 月</td>
-                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
-                            </tr>
-                            <tr>
-                                <td>光熱費（月平均）</td>
-                                <td>電気：＿＿＿＿円 / ガス：＿＿＿＿円 / 水道：＿＿＿＿円</td>
-                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
-                            </tr>
-                            <tr>
-                                <td><strong>【現在の住まいの不満・改善したい点】</strong><br><span class="text-sm text-gray-500">（できるだけ具体的に）</span></td>
                                 <td>
-                                    <ul class="list-disc list-inside space-y-1">
-                                        <li>間取り・動線（部屋が狭い、収納が少ない、家事動線が悪い 等）</li>
-                                        <li>キッチン（狭い、暗い、作業スペース不足 等）</li>
-                                        <li>浴室・洗面・トイレ（狭い、寒い、掃除しにくい 等）</li>
-                                        <li>性能（夏暑い、冬寒い、結露、光熱費が高い、音が響く 等）</li>
-                                        <li>その他（コンセント不足、日当たり、デザイン、庭、駐車場 等）</li>
-                                    </ul>
-                                    <div class="memo-area mt-2"></div>
+                                    <select>
+                                        <option value="">選択してください</option>
+                                        <option value="賃貸マンション">賃貸マンション</option>
+                                        <option value="アパート">アパート</option>
+                                        <option value="戸建て">戸建て</option>
+                                        <option value="社宅">社宅</option>
+                                        <option value="ご実家">ご実家</option>
+                                        <option value="その他">その他</option>
+                                    </select>
                                 </td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                             <tr>
+                                <td><strong>居住年数</strong></td>
+                                <td><div class="input-group"><input type="number" min="0" placeholder="例：5"><span>年</span></div></td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>間取り・広さ</strong></td>
+                                <td>
+                                    <div class="input-group">
+                                        <input type="text" placeholder="例：2LDK">
+                                        <input type="number" min="0" placeholder="例：55"><span>㎡</span>
+                                    </div>
+                                </td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>【費用関連】</strong><br>月々の家賃・管理費</td>
+                                <td>
+                                    <div class="input-group">
+                                        <label>家賃：</label><input type="number" min="0" placeholder="100000"><span>円</span>
+                                    </div>
+                                    <div class="input-group mt-2">
+                                        <label>管理費：</label><input type="number" min="0" placeholder="5000"><span>円</span>
+                                    </div>
+                                </td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                             <tr>
+                                <td>駐車場代</td>
+                                <td><div class="input-group"><input type="number" min="0" placeholder="15000"><span>円/月</span></div></td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td>光熱費（月平均）</td>
+                                <td>
+                                    <div class="input-group"><label>電気：</label><input type="number" min="0" placeholder="8000"><span>円</span></div>
+                                    <div class="input-group mt-2"><label>ガス：</label><input type="number" min="0" placeholder="5000"><span>円</span></div>
+                                    <div class="input-group mt-2"><label>水道：</label><input type="number" min="0" placeholder="4000"><span>円</span></div>
+                                </td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>【現在の住まいの不満・改善したい点】</strong><br><span class="text-sm text-gray-500">（できるだけ具体的に）</span></td>
+                                <td><textarea placeholder="例：収納が少なくて部屋が片付かない。キッチンが狭くて料理しづらい。冬は結露がひどく、足元が寒い。"></textarea></td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                            <tr>
                                 <td><strong>【現在の住まいのお気に入りポイント】</strong><br><span class="text-sm text-gray-500">（新しい家でも取り入れたい点）</span></td>
-                                <td><div class="memo-area"></div></td>
+                                <td><textarea placeholder="例：駅に近くて便利。南向きで日当たりが良い。"></textarea></td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                         </tbody>
@@ -222,34 +256,34 @@
                         <thead>
                             <tr>
                                 <th>質問項目</th>
-                                <th>回答・メモ欄</th>
+                                <th>ご回答欄</th>
                                 <th>チェック</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><strong>家づくりの動機・きっかけ</strong></td>
-                                <td><div class="memo-area"></div></td>
+                                <td><textarea placeholder="例：子供が小学校に上がる前に。今の家が手狭になったから。"></textarea></td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                              <tr>
                                 <td><strong>理想の暮らし・ライフスタイル</strong></td>
-                                <td>例：家族団らん、趣味、ホームパーティ、子育て 等<div class="memo-area mt-2"></div></td>
+                                <td><textarea placeholder="例：家族がリビングに自然と集まるような家にしたい。庭でBBQや家庭菜園を楽しみたい。"></textarea></td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                             <tr>
                                 <td><strong>デザイン・雰囲気</strong><br><span class="text-sm text-gray-500">（外観・内装）</span></td>
-                                <td>シンプルモダン / ナチュラル / 和モダン / カフェ風 / ホテルライク 等<div class="memo-area mt-2"></div></td>
+                                <td><textarea placeholder="例：外観はガルバリウムを使ったシンプルなデザイン。内装は無垢材や漆喰など自然素材を使いたい。"></textarea></td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                             <tr>
                                 <td><strong>間取り・空間</strong><br><span class="text-sm text-gray-500">（特にこだわりたい空間）</span></td>
-                                <td>広いリビング / アイランドキッチン / 吹き抜け / 書斎 / インナーガレージ / ウッドデッキ / パントリー / ランドリールーム 等<div class="memo-area mt-2"></div></td>
+                                <td><textarea placeholder="例：開放的な吹き抜けとアイランドキッチンは必須。夫のリモートワーク用の書斎が欲しい。洗濯物を干してそのまま仕舞えるランドリールームが理想。"></textarea></td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                             <tr>
                                 <td><strong>性能・設備</strong><br><span class="text-sm text-gray-500">（重視する性能、希望の設備）</span></td>
-                                <td>耐震性 / 断熱性 / 太陽光発電 / 全館空調 / 床暖房 等<div class="memo-area mt-2"></div></td>
+                                <td><textarea placeholder="例：耐震等級3は絶対条件。光熱費を抑えたいので断熱性と太陽光発電を重視。"></textarea></td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                         </tbody>
@@ -271,24 +305,30 @@
                         <thead>
                             <tr>
                                 <th>質問項目</th>
-                                <th>回答・メモ欄</th>
+                                <th>ご回答欄</th>
                                 <th>チェック</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><strong>土地の有無</strong></td>
-                                <td><strong>有り</strong> / <strong>無し</strong>（探し中）</td>
+                                <td>
+                                    <select>
+                                        <option value="">選択してください</option>
+                                        <option value="有り">有り</option>
+                                        <option value="無し">無し（探し中）</option>
+                                    </select>
+                                </td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                              <tr>
                                 <td><strong>土地が有る場合</strong><br><span class="text-sm text-gray-500">（所在地、資料の有無など）</span></td>
-                                <td><div class="memo-area"></div></td>
+                                <td><textarea placeholder="所在地、面積、現状（更地、古家あり等）、資料の有無などをご記入ください。"></textarea></td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                             <tr>
                                 <td><strong>土地が無い場合</strong><br><span class="text-sm text-gray-500">（希望エリア、広さ、周辺環境）</span></td>
-                                <td><div class="memo-area"></div></td>
+                                <td><textarea placeholder="希望エリア（〇〇市、〇〇小学校区など）、希望の広さ、周辺環境で重視する点などをご記入ください。"></textarea></td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                         </tbody>
@@ -310,39 +350,56 @@
                         <thead>
                             <tr>
                                 <th>質問項目</th>
-                                <th>回答・メモ欄</th>
+                                <th>ご回答欄</th>
                                 <th>チェック</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><strong>ご予算の全体像</strong><br><span class="text-sm text-gray-500">（土地＋建物＋諸費用）</span></td>
-                                <td>総額：約＿＿＿＿万円</td>
+                                <td><div class="input-group"><span>約</span><input type="number" min="0" step="100" placeholder="4000"><span>万円</span></div></td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                              <tr>
                                 <td><strong>自己資金（頭金）</strong></td>
-                                <td>約＿＿＿＿万円</td>
+                                <td><div class="input-group"><span>約</span><input type="number" min="0" step="50" placeholder="500"><span>万円</span></div></td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                             <tr>
                                 <td><strong>住宅ローンの借入希望額</strong></td>
-                                <td>約＿＿＿＿万円</td>
+                                <td><div class="input-group"><span>約</span><input type="number" min="0" step="100" placeholder="3500"><span>万円</span></div></td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                             <tr>
                                 <td><strong>月々の返済希望額</strong></td>
-                                <td>＿＿＿＿円以内</td>
+                                <td><div class="input-group"><input type="number" min="0" step="10000" placeholder="120000"><span>円以内</span></div></td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                              <tr>
                                 <td><strong>他にローンはありますか？</strong></td>
-                                <td>有り（月々＿＿＿＿円）/ 無し</td>
+                                <td>
+                                    <div class="input-group">
+                                        <select>
+                                            <option value="無し">無し</option>
+                                            <option value="有り">有り</option>
+                                        </select>
+                                        <input type="text" placeholder="有りの場合：自動車ローン 月々3万円 など">
+                                    </div>
+                                </td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                             <tr>
                                 <td><strong>ご両親などからの資金援助</strong></td>
-                                <td>有り（約＿＿＿＿万円）/ 無し / 未定</td>
+                                 <td>
+                                    <div class="input-group">
+                                        <select>
+                                            <option value="無し">無し</option>
+                                            <option value="有り">有り</option>
+                                            <option value="未定">未定</option>
+                                        </select>
+                                        <input type="text" placeholder="有りの場合：約〇〇万円 など">
+                                    </div>
+                                </td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                         </tbody>
@@ -364,29 +421,29 @@
                         <thead>
                             <tr>
                                 <th>質問項目</th>
-                                <th>回答・メモ欄</th>
+                                <th>ご回答欄</th>
                                 <th>チェック</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><strong>ご希望の入居時期</strong></td>
-                                <td>＿＿＿＿年＿＿月頃 / 良いタイミングで / 特に急いでいない</td>
+                                <td><input type="text" placeholder="例：2026年3月頃まで / 子供の入学まで"></td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                              <tr>
                                 <td><strong>これまでのご検討状況</strong></td>
-                                <td>見学会・イベント参加経験 / 他社検討状況（＿＿社）</td>
+                                <td><textarea placeholder="例：住宅展示場に2回行った。A社とB社の話を聞いた。"></textarea></td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                             <tr>
                                 <td><strong>家づくりで最も重視すること</strong><br><span class="text-sm text-gray-500">（優先順位）</span></td>
-                                <td>価格 / デザイン / 性能 / 間取り / 担当者 / アフターサービス / 会社の信頼性</td>
+                                <td><textarea placeholder="例：1.性能 2.間取りの自由度 3.価格"></textarea></td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                             <tr>
                                 <td><strong>今後のご連絡方法・頻度</strong></td>
-                                <td>電話 / メール / LINE / 希望の時間帯</td>
+                                <td><textarea placeholder="例：平日の夜にメールでの連絡を希望。"></textarea></td>
                                 <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
                             </tr>
                         </tbody>
@@ -399,3 +456,4 @@
 
 </body>
 </html>
+
