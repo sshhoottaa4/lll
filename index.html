@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ハウスメーカー営業向け：お客様ヒアリングチェックリスト</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', 'Inter', sans-serif;
+        }
+        /* 印刷時にチェックボックスが正しく表示されるように調整 */
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .no-print {
+                display: none;
+            }
+            .printable-checkbox {
+                width: 16px;
+                height: 16px;
+                border: 1px solid #6b7280;
+                display: inline-block;
+                vertical-align: middle;
+                position: relative;
+            }
+        }
+        h2 {
+            border-left: 5px solid #1D4ED8; /* Tailwind's blue-700 */
+            padding-left: 0.75rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #d1d5db; /* Tailwind's gray-300 */
+            padding: 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #f3f4f6; /* Tailwind's gray-100 */
+            font-weight: 500;
+        }
+        td:nth-child(3) {
+            text-align: center;
+        }
+        .memo-area {
+            height: 80px;
+            width: 100%;
+            border: 1px dashed #ccc;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <div class="bg-white p-6 sm:p-8 lg:p-12 rounded-lg shadow-lg">
+
+            <header class="text-center mb-10">
+                <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">ハウスメーカー営業向け お客様ヒアリングチェックリスト</h1>
+                <p class="mt-4 text-gray-600">お客様の理想の住まいを形にし、最適なご提案をするためのヒアリング項目です。</p>
+            </header>
+
+            <!-- お客様について（基本情報） -->
+            <section class="mb-12">
+                <h2 class="text-xl font-bold text-gray-800">■ お客様について（基本情報）</h2>
+                <p class="text-gray-600 mb-4">お客様の暮らしの背景を理解するための基本情報です。</p>
+                <div class="overflow-x-auto">
+                    <table>
+                        <colgroup>
+                            <col style="width:30%;">
+                            <col style="width:60%;">
+                            <col style="width:10%;">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>質問項目</th>
+                                <th>回答・メモ欄</th>
+                                <th>チェック</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>お名前・ご連絡先</strong></td>
+                                <td><div class="memo-area"></div></td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>ご家族構成</strong><br><span class="text-sm text-gray-500">（同居予定の方全員）</span></td>
+                                <td>
+                                    ・続柄：<br>
+                                    ・ご年齢：<br>
+                                    ・ご職業：
+                                    <div class="memo-area mt-2"></div>
+                                </td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                             <tr>
+                                <td><strong>将来の家族構成の変化</strong><br><span class="text-sm text-gray-500">（お子様の予定、ご両親との同居など）</span></td>
+                                <td><div class="memo-area"></div></td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>現在の働き方</strong><br><span class="text-sm text-gray-500">（リモートワークの頻度、通勤手段など）</span></td>
+                                <td><div class="memo-area"></div></td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>ご趣味・休日の過ごし方</strong><br><span class="text-sm text-gray-500">（インドア、アウトドア、来客頻度など）</span></td>
+                                <td><div class="memo-area"></div></td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>ペットの有無</strong><br><span class="text-sm text-gray-500">（種類、頭数、室内/室外飼い）</span></td>
+                                <td><div class="memo-area"></div></td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                             <tr>
+                                <td><strong>アレルギーの有無</strong></td>
+                                <td><div class="memo-area"></div></td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 今の住まいについて -->
+            <section class="mb-12">
+                <h2 class="text-xl font-bold text-gray-800">■ 今の住まいについて（現状把握と不満・要望の明確化）</h2>
+                <p class="text-gray-600 mb-4">新しい家で解決すべき課題を明確にするための重要な項目です。</p>
+                <div class="overflow-x-auto">
+                    <table>
+                        <colgroup>
+                            <col style="width:30%;">
+                            <col style="width:60%;">
+                            <col style="width:10%;">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>質問項目</th>
+                                <th>回答・メモ欄</th>
+                                <th>チェック</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>現在の住形態</strong></td>
+                                <td>賃貸マンション / アパート / 戸建て / 社宅 / ご実家 / その他</td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>居住年数</strong></td>
+                                <td>約＿＿＿＿年</td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>間取り・広さ</strong></td>
+                                <td>＿＿LDK / ＿＿㎡</td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>【費用関連】</strong><br>月々の家賃・管理費</td>
+                                <td>家賃：＿＿＿＿円 / 管理費・共益費：＿＿＿＿円</td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                             <tr>
+                                <td>駐車場代</td>
+                                <td>＿＿＿＿円 / 月</td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td>光熱費（月平均）</td>
+                                <td>電気：＿＿＿＿円 / ガス：＿＿＿＿円 / 水道：＿＿＿＿円</td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>【現在の住まいの不満・改善したい点】</strong><br><span class="text-sm text-gray-500">（できるだけ具体的に）</span></td>
+                                <td>
+                                    <ul class="list-disc list-inside space-y-1">
+                                        <li>間取り・動線（部屋が狭い、収納が少ない、家事動線が悪い 等）</li>
+                                        <li>キッチン（狭い、暗い、作業スペース不足 等）</li>
+                                        <li>浴室・洗面・トイレ（狭い、寒い、掃除しにくい 等）</li>
+                                        <li>性能（夏暑い、冬寒い、結露、光熱費が高い、音が響く 等）</li>
+                                        <li>その他（コンセント不足、日当たり、デザイン、庭、駐車場 等）</li>
+                                    </ul>
+                                    <div class="memo-area mt-2"></div>
+                                </td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>【現在の住まいのお気に入りポイント】</strong><br><span class="text-sm text-gray-500">（新しい家でも取り入れたい点）</span></td>
+                                <td><div class="memo-area"></div></td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- 新しい家へのご要望 -->
+            <section class="mb-12">
+                <h2 class="text-xl font-bold text-gray-800">■ 新しい家へのご要望（理想の暮らしの具体化）</h2>
+                <p class="text-gray-600 mb-4">お客様が思い描く理想の暮らしをヒアリングし、提案のコンセプトを固めます。</p>
+                <div class="overflow-x-auto">
+                     <table>
+                        <colgroup>
+                            <col style="width:30%;">
+                            <col style="width:60%;">
+                            <col style="width:10%;">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>質問項目</th>
+                                <th>回答・メモ欄</th>
+                                <th>チェック</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>家づくりの動機・きっかけ</strong></td>
+                                <td><div class="memo-area"></div></td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                             <tr>
+                                <td><strong>理想の暮らし・ライフスタイル</strong></td>
+                                <td>例：家族団らん、趣味、ホームパーティ、子育て 等<div class="memo-area mt-2"></div></td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>デザイン・雰囲気</strong><br><span class="text-sm text-gray-500">（外観・内装）</span></td>
+                                <td>シンプルモダン / ナチュラル / 和モダン / カフェ風 / ホテルライク 等<div class="memo-area mt-2"></div></td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>間取り・空間</strong><br><span class="text-sm text-gray-500">（特にこだわりたい空間）</span></td>
+                                <td>広いリビング / アイランドキッチン / 吹き抜け / 書斎 / インナーガレージ / ウッドデッキ / パントリー / ランドリールーム 等<div class="memo-area mt-2"></div></td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>性能・設備</strong><br><span class="text-sm text-gray-500">（重視する性能、希望の設備）</span></td>
+                                <td>耐震性 / 断熱性 / 太陽光発電 / 全館空調 / 床暖房 等<div class="memo-area mt-2"></div></td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 敷地・土地について -->
+            <section class="mb-12">
+                <h2 class="text-xl font-bold text-gray-800">■ 敷地・土地について</h2>
+                <p class="text-gray-600 mb-4">建築の前提条件となる土地に関する情報を確認します。</p>
+                <div class="overflow-x-auto">
+                     <table>
+                        <colgroup>
+                            <col style="width:30%;">
+                            <col style="width:60%;">
+                            <col style="width:10%;">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>質問項目</th>
+                                <th>回答・メモ欄</th>
+                                <th>チェック</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>土地の有無</strong></td>
+                                <td><strong>有り</strong> / <strong>無し</strong>（探し中）</td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                             <tr>
+                                <td><strong>土地が有る場合</strong><br><span class="text-sm text-gray-500">（所在地、資料の有無など）</span></td>
+                                <td><div class="memo-area"></div></td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>土地が無い場合</strong><br><span class="text-sm text-gray-500">（希望エリア、広さ、周辺環境）</span></td>
+                                <td><div class="memo-area"></div></td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 資金計画・ご予算について -->
+            <section class="mb-12">
+                <h2 class="text-xl font-bold text-gray-800">■ 資金計画・ご予算について</h2>
+                <p class="text-gray-600 mb-4">無理のない計画を立てるために、誠実なヒアリングが求められる項目です。</p>
+                 <div class="overflow-x-auto">
+                     <table>
+                        <colgroup>
+                            <col style="width:30%;">
+                            <col style="width:60%;">
+                            <col style="width:10%;">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>質問項目</th>
+                                <th>回答・メモ欄</th>
+                                <th>チェック</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>ご予算の全体像</strong><br><span class="text-sm text-gray-500">（土地＋建物＋諸費用）</span></td>
+                                <td>総額：約＿＿＿＿万円</td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                             <tr>
+                                <td><strong>自己資金（頭金）</strong></td>
+                                <td>約＿＿＿＿万円</td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>住宅ローンの借入希望額</strong></td>
+                                <td>約＿＿＿＿万円</td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>月々の返済希望額</strong></td>
+                                <td>＿＿＿＿円以内</td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                             <tr>
+                                <td><strong>他にローンはありますか？</strong></td>
+                                <td>有り（月々＿＿＿＿円）/ 無し</td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>ご両親などからの資金援助</strong></td>
+                                <td>有り（約＿＿＿＿万円）/ 無し / 未定</td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- スケジュール・今後の進め方について -->
+            <section>
+                <h2 class="text-xl font-bold text-gray-800">■ スケジュール・今後の進め方について</h2>
+                <p class="text-gray-600 mb-4">お客様と営業担当者の間で、今後の進め方の認識を合わせます。</p>
+                 <div class="overflow-x-auto">
+                     <table>
+                        <colgroup>
+                            <col style="width:30%;">
+                            <col style="width:60%;">
+                            <col style="width:10%;">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>質問項目</th>
+                                <th>回答・メモ欄</th>
+                                <th>チェック</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>ご希望の入居時期</strong></td>
+                                <td>＿＿＿＿年＿＿月頃 / 良いタイミングで / 特に急いでいない</td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                             <tr>
+                                <td><strong>これまでのご検討状況</strong></td>
+                                <td>見学会・イベント参加経験 / 他社検討状況（＿＿社）</td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>家づくりで最も重視すること</strong><br><span class="text-sm text-gray-500">（優先順位）</span></td>
+                                <td>価格 / デザイン / 性能 / 間取り / 担当者 / アフターサービス / 会社の信頼性</td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>今後のご連絡方法・頻度</strong></td>
+                                <td>電話 / メール / LINE / 希望の時間帯</td>
+                                <td><input type="checkbox" class="h-5 w-5 text-blue-600 printable-checkbox"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+</body>
+</html>
