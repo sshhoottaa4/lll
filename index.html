@@ -3,349 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>一条工務店 お客様ヒアリングチェックリスト</title>
-    <!-- Tailwind CSS CDN -->
+    <title>株価影響ニュースウォッチャー</title>
+    <!-- Tailwind CSS CDNの読み込み -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Inter font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Interフォントの指定 */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8; /* Light blue-gray background */
+            background-color: #f0f2f5; /* 背景色を少しグレーに */
         }
-        /* Custom scrollbar for better aesthetics */
-        ::-webkit-scrollbar {
-            width: 8px;
+        /* カスタムローディングスピナーのスタイル */
+        .loader {
+            border: 4px solid #f3f3f3; /* Light grey */
+            border-top: 4px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            display: none; /* 初期状態では非表示 */
         }
-        ::-webkit-scrollbar-track {
-            background: #e2e8f0;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #94a3b8;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #64748b;
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
-<body class="p-4 sm:p-6 md:p-8 lg:p-10 min-h-screen flex items-center justify-center">
-    <div class="bg-white p-6 sm:p-8 md:p-10 lg:p-12 rounded-xl shadow-2xl max-w-4xl w-full">
-        <h1 class="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-8">お客様ヒアリングチェックリスト</h1>
-        <p class="text-gray-600 text-center mb-10">一条工務店の営業として、お客様の潜在的なニーズや、住宅建築への具体的な意思を把握するためのヒアリングにご活用ください。</p>
+<body class="p-4 sm:p-6 md:p-8">
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-xl p-6 sm:p-8">
+        <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-6 text-center">
+            株価影響ニュースウォッチャー
+        </h1>
 
-        <!-- Section 1: お客様情報 -->
-        <div class="mb-10 p-6 bg-blue-50 rounded-lg shadow-inner">
-            <h2 class="text-2xl font-semibold text-blue-800 mb-6 border-b-2 border-blue-200 pb-2">1. お客様情報</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <label for="customer-name" class="block text-gray-700 text-sm font-medium mb-2">お客様氏名:</label>
-                    <input type="text" id="customer-name" name="customer-name" class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition duration-200" placeholder="例: 山田 太郎">
-                </div>
-                <div>
-                    <label for="contact-info" class="block text-gray-700 text-sm font-medium mb-2">連絡先（電話番号/メールアドレス）:</label>
-                    <input type="text" id="contact-info" name="contact-info" class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition duration-200" placeholder="例: 090-XXXX-XXXX / example@email.com">
-                </div>
-                <div>
-                    <label for="address" class="block text-gray-700 text-sm font-medium mb-2">ご住所:</label>
-                    <input type="text" id="address" name="address" class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition duration-200" placeholder="例: 東京都新宿区西新宿2-8-1">
-                </div>
-                <div>
-                    <label class="block text-gray-700 text-sm font-medium mb-2">ご家族構成:</label>
-                    <div class="flex items-center space-x-4">
-                        <label for="adults" class="flex items-center text-gray-700">大人:
-                            <input type="number" id="adults" name="adults" min="0" class="ml-2 w-20 p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition duration-200 text-center" value="0"> 名
-                        </label>
-                        <label for="children" class="flex items-center text-gray-700">子供:
-                            <input type="number" id="children" name="children" min="0" class="ml-2 w-20 p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition duration-200 text-center" value="0"> 名
-                        </label>
-                    </div>
-                    <label for="children-ages" class="block text-gray-700 text-sm font-medium mt-2 mb-2">（年齢: カンマ区切りで入力）:</label>
-                    <input type="text" id="children-ages" name="children-ages" class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition duration-200" placeholder="例: 5, 8, 12">
-                </div>
-                <div>
-                    <label for="occupation" class="block text-gray-700 text-sm font-medium mb-2">ご職業:</label>
-                    <input type="text" id="occupation" name="occupation" class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition duration-200" placeholder="例: 会社員">
-                </div>
-                <div>
-                    <label for="how-known" class="block text-gray-700 text-sm font-medium mb-2">一条工務店を何で知りましたか？</label>
-                    <input type="text" id="how-known" name="how-known" class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 transition duration-200" placeholder="例: CM、WEBサイト、紹介、展示場など">
-                </div>
-            </div>
-        </div>
+        <p class="text-gray-600 mb-6 text-center">
+            「ニュースを取得」ボタンを押すと、株価に影響を与えそうなニュースのシミュレーションが表示されます。<br>
+            ※このアプリはデモであり、実際のニュースデータは取得していません。
+        </p>
 
-        <!-- Section 2: 現在のお住まいについて -->
-        <div class="mb-10 p-6 bg-green-50 rounded-lg shadow-inner">
-            <h2 class="text-2xl font-semibold text-green-800 mb-6 border-b-2 border-green-200 pb-2">2. 現在のお住まいについて</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <label for="current-home-type" class="block text-gray-700 text-sm font-medium mb-2">現在のお住まいの種類:</label>
-                    <input type="text" id="current-home-type" name="current-home-type" class="w-full p-3 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500 transition duration-200" placeholder="例: 持ち家（戸建て/マンション）、賃貸">
-                </div>
-                <div>
-                    <label for="residence-years" class="block text-gray-700 text-sm font-medium mb-2">現在の居住年数:</label>
-                    <input type="number" id="residence-years" name="residence-years" min="0" class="w-full p-3 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500 transition duration-200" placeholder="例: 5">
-                </div>
-            </div>
-            <div class="mt-6">
-                <label for="current-satisfaction" class="block text-gray-700 text-sm font-medium mb-2">現在の住まいで満足している点:</label>
-                <textarea id="current-satisfaction" name="current-satisfaction" rows="3" class="w-full p-3 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500 transition duration-200" placeholder="例: 駅が近い、広い庭がある"></textarea>
-            </div>
-            <div class="mt-6">
-                <label for="current-dissatisfaction" class="block text-gray-700 text-sm font-medium mb-2">現在の住まいへの不満点（具体的に）:</label>
-                <textarea id="current-dissatisfaction" name="current-dissatisfaction" rows="5" class="w-full p-3 border border-gray-300 rounded-md focus:ring-green-500 focus:border-green-500 transition duration-200" placeholder="例: 冬が寒い、収納が少ない、間取りが使いにくい"></textarea>
-                <ul class="list-disc list-inside text-gray-600 text-sm mt-2 ml-4">
-                    <li>広さ（手狭、広すぎるなど）: <input type="text" name="dissatisfaction-space" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-green-500 outline-none"></li>
-                    <li>間取り: <input type="text" name="dissatisfaction-layout" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-green-500 outline-none"></li>
-                    <li>日当たり・風通し: <input type="text" name="dissatisfaction-sunlight" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-green-500 outline-none"></li>
-                    <li>断熱性・気密性（夏暑い、冬寒いなど）: <input type="text" name="dissatisfaction-insulation" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-green-500 outline-none"></li>
-                    <li>騒音: <input type="text" name="dissatisfaction-noise" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-green-500 outline-none"></li>
-                    <li>設備（キッチン、お風呂など）: <input type="text" name="dissatisfaction-equipment" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-green-500 outline-none"></li>
-                    <li>収納: <input type="text" name="dissatisfaction-storage" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-green-500 outline-none"></li>
-                    <li>立地・周辺環境: <input type="text" name="dissatisfaction-location" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-green-500 outline-none"></li>
-                    <li>その他: <input type="text" name="dissatisfaction-other" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-green-500 outline-none"></li>
-                </ul>
-            </div>
-            <div class="mt-6">
-                <label class="block text-gray-700 text-sm font-medium mb-2">不満点が住宅建築を検討するきっかけになっていますか？</label>
-                <div class="flex space-x-4">
-                    <label class="inline-flex items-center">
-                        <input type="radio" name="trigger-for-building" value="yes" class="form-radio h-4 w-4 text-green-600">
-                        <span class="ml-2 text-gray-700">はい</span>
-                    </label>
-                    <label class="inline-flex items-center">
-                        <input type="radio" name="trigger-for-building" value="no" class="form-radio h-4 w-4 text-green-600">
-                        <span class="ml-2 text-gray-700">いいえ</span>
-                    </label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 3: 住宅建築の検討状況と目的 -->
-        <div class="mb-10 p-6 bg-yellow-50 rounded-lg shadow-inner">
-            <h2 class="text-2xl font-semibold text-yellow-800 mb-6 border-b-2 border-yellow-200 pb-2">3. 住宅建築の検討状況と目的</h2>
-            <div class="mb-6">
-                <label class="block text-gray-700 text-sm font-medium mb-2">住宅建築を具体的に検討されていますか？</label>
-                <div class="flex space-x-4">
-                    <label class="inline-flex items-center">
-                        <input type="radio" name="considering-building" value="yes" class="form-radio h-4 w-4 text-yellow-600">
-                        <span class="ml-2 text-gray-700">はい</span>
-                    </label>
-                    <label class="inline-flex items-center">
-                        <input type="radio" name="considering-building" value="no" class="form-radio h-4 w-4 text-yellow-600">
-                        <span class="ml-2 text-gray-700">いいえ</span>
-                    </label>
-                </div>
-                <div class="mt-2 pl-6">
-                    <label for="consideration-start-date" class="block text-gray-700 text-sm font-medium mb-2">「はい」の場合、検討開始時期:</label>
-                    <input type="text" id="consideration-start-date" name="consideration-start-date" class="w-full p-3 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500 transition duration-200" placeholder="例: 〇〇年〇月頃">
-                    <label for="future-consideration" class="block text-gray-700 text-sm font-medium mt-4 mb-2">「いいえ」の場合、今後検討する可能性はありますか？</label>
-                    <textarea id="future-consideration" name="future-consideration" rows="2" class="w-full p-3 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500 transition duration-200" placeholder="例: 将来的に考えている、今はまだ具体的にはない"></textarea>
-                </div>
-            </div>
-
-            <div class="mb-6">
-                <label class="block text-gray-700 text-sm font-medium mb-2">なぜ新しい住宅を建築したいとお考えですか？（複数回答可）</label>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    <label class="inline-flex items-center">
-                        <input type="checkbox" name="building-purpose" value="dissatisfaction-resolution" class="form-checkbox h-4 w-4 text-yellow-600 rounded">
-                        <span class="ml-2 text-gray-700">現在の住まいへの不満解消</span>
-                    </label>
-                    <label class="inline-flex items-center">
-                        <input type="checkbox" name="building-purpose" value="family-change" class="form-checkbox h-4 w-4 text-yellow-600 rounded">
-                        <span class="ml-2 text-gray-700">家族構成の変化（結婚、出産、子供の成長など）</span>
-                    </label>
-                    <label class="inline-flex items-center">
-                        <input type="checkbox" name="building-purpose" value="retirement-life" class="form-checkbox h-4 w-4 text-yellow-600 rounded">
-                        <span class="ml-2 text-gray-700">老後の生活を見据えて</span>
-                    </label>
-                    <label class="inline-flex items-center">
-                        <input type="checkbox" name="building-purpose" value="asset-formation" class="form-checkbox h-4 w-4 text-yellow-600 rounded">
-                        <span class="ml-2 text-gray-700">資産形成のため</span>
-                    </label>
-                    <label class="inline-flex items-center">
-                        <input type="checkbox" name="building-purpose" value="ideal-life" class="form-checkbox h-4 w-4 text-yellow-600 rounded">
-                        <span class="ml-2 text-gray-700">理想の暮らしを実現したい</span>
-                    </label>
-                    <label class="inline-flex items-center">
-                        <input type="checkbox" name="building-purpose" value="other" class="form-checkbox h-4 w-4 text-yellow-600 rounded">
-                        <span class="ml-2 text-gray-700">その他（具体的に）:</span>
-                        <input type="text" name="building-purpose-other-text" class="ml-2 w-full p-1 border-b border-gray-300 focus:border-yellow-500 outline-none">
-                    </label>
-                </div>
-            </div>
-
-            <div class="mb-6">
-                <label for="move-in-timeline" class="block text-gray-700 text-sm font-medium mb-2">いつ頃までに新しい住宅に住みたいとお考えですか？</label>
-                <input type="text" id="move-in-timeline" name="move-in-timeline" class="w-full p-3 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500 transition duration-200" placeholder="例: 2年以内、〇〇年〇月頃">
-            </div>
-
-            <div class="mb-6">
-                <label class="block text-gray-700 text-sm font-medium mb-2">これまでに住宅展示場や見学会に行かれましたか？</label>
-                <div class="flex space-x-4">
-                    <label class="inline-flex items-center">
-                        <input type="radio" name="visited-exhibition" value="yes" class="form-radio h-4 w-4 text-yellow-600">
-                        <span class="ml-2 text-gray-700">はい</span>
-                    </label>
-                    <label class="inline-flex items-center">
-                        <input type="radio" name="visited-exhibition" value="no" class="form-radio h-4 w-4 text-yellow-600">
-                        <span class="ml-2 text-gray-700">いいえ</span>
-                    </label>
-                </div>
-                <div class="mt-2 pl-6">
-                    <label for="visited-locations" class="block text-gray-700 text-sm font-medium mb-2">「はい」の場合、どちらに行かれましたか？</label>
-                    <input type="text" id="visited-locations" name="visited-locations" class="w-full p-3 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500 transition duration-200" placeholder="例: 〇〇展示場、〇〇ハウスメーカーの見学会">
-                    <label for="points-of-interest" class="block text-gray-700 text-sm font-medium mt-4 mb-2">「はい」の場合、どんな点に興味を持たれましたか？</label>
-                    <textarea id="points-of-interest" name="points-of-interest" rows="2" class="w-full p-3 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500 transition duration-200" placeholder="例: デザイン、断熱性能、収納の多さ"></textarea>
-                </div>
-            </div>
-
-            <div class="mb-6">
-                <label class="block text-gray-700 text-sm font-medium mb-2">他のハウスメーカーや工務店も検討されていますか？</label>
-                <div class="flex space-x-4">
-                    <label class="inline-flex items-center">
-                        <input type="radio" name="considering-other-builders" value="yes" class="form-radio h-4 w-4 text-yellow-600">
-                        <span class="ml-2 text-gray-700">はい</span>
-                    </label>
-                    <label class="inline-flex items-center">
-                        <input type="radio" name="considering-other-builders" value="no" class="form-radio h-4 w-4 text-yellow-600">
-                        <span class="ml-2 text-gray-700">いいえ</span>
-                    </label>
-                </div>
-                <div class="mt-2 pl-6">
-                    <label for="other-builders-names" class="block text-gray-700 text-sm font-medium mb-2">「はい」の場合、どちらを検討されていますか？</label>
-                    <input type="text" id="other-builders-names" name="other-builders-names" class="w-full p-3 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500 transition duration-200" placeholder="例: 〇〇ハウス、〇〇ホーム">
-                    <label for="other-builders-comparison" class="block text-gray-700 text-sm font-medium mt-4 mb-2">「はい」の場合、一条工務店と比較してどのような点に魅力を感じていますか？</label>
-                    <textarea id="other-builders-comparison" name="other-builders-comparison" rows="2" class="w-full p-3 border border-gray-300 rounded-md focus:ring-yellow-500 focus:border-yellow-500 transition duration-200" placeholder="例: 価格、デザイン、アフターサービス"></textarea>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 4: 新しい住宅へのご要望 -->
-        <div class="mb-10 p-6 bg-purple-50 rounded-lg shadow-inner">
-            <h2 class="text-2xl font-semibold text-purple-800 mb-6 border-b-2 border-purple-200 pb-2">4. 新しい住宅へのご要望</h2>
-            <div class="mb-6">
-                <label for="ideal-lifestyle" class="block text-gray-700 text-sm font-medium mb-2">どのようなライフスタイルを新しい家で送りたいですか？</label>
-                <textarea id="ideal-lifestyle" name="ideal-lifestyle" rows="3" class="w-full p-3 border border-gray-300 rounded-md focus:ring-purple-500 focus:border-purple-500 transition duration-200" placeholder="例: 家族との時間を大切にしたい、趣味の時間を充実させたい、リモートワークがしやすい環境"></textarea>
-            </div>
-
-            <div class="mb-6">
-                <label class="block text-gray-700 text-sm font-medium mb-2">理想の間取りや部屋数:</label>
-                <ul class="list-disc list-inside text-gray-600 text-sm mt-2 ml-4">
-                    <li>LDKの広さや配置: <input type="text" name="desired-ldk" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-purple-500 outline-none"></li>
-                    <li>寝室の数と配置: <input type="text" name="desired-bedrooms" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-purple-500 outline-none"></li>
-                    <li>子供部屋の数と将来性: <input type="text" name="desired-children-rooms" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-purple-500 outline-none"></li>
-                    <li>和室の有無: <input type="text" name="desired-japanese-room" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-purple-500 outline-none"></li>
-                    <li>書斎や趣味の部屋: <input type="text" name="desired-study-hobby" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-purple-500 outline-none"></li>
-                    <li>収納スペース（ウォークインクローゼット、パントリーなど）: <input type="text" name="desired-storage" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-purple-500 outline-none"></li>
-                    <li>その他（土間、吹き抜け、ロフトなど）: <input type="text" name="desired-other-rooms" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-purple-500 outline-none"></li>
-                </ul>
-            </div>
-
-            <div class="mb-6">
-                <label class="block text-gray-700 text-sm font-medium mb-2">特にこだわりたい空間や設備:</label>
-                <ul class="list-disc list-inside text-gray-600 text-sm mt-2 ml-4">
-                    <li>キッチン（アイランドキッチン、対面キッチンなど）: <input type="text" name="こだわり-キッチン" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-purple-500 outline-none"></li>
-                    <li>お風呂（広さ、機能など）: <input type="text" name="こだわり-お風呂" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-purple-500 outline-none"></li>
-                    <li>トイレ（数、機能など）: <input type="text" name="こだわり-トイレ" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-purple-500 outline-none"></li>
-                    <li>玄関（広さ、収納など）: <input type="text" name="こだわり-玄関" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-purple-500 outline-none"></li>
-                    <li>リビング（開放感、デザインなど）: <input type="text" name="こだわり-リビング" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-purple-500 outline-none"></li>
-                    <li>外観デザイン（モダン、和風、洋風など）: <input type="text" name="こだわり-外観デザイン" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-purple-500 outline-none"></li>
-                    <li>庭やバルコニー: <input type="text" name="こだわり-庭バルコニー" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-purple-500 outline-none"></li>
-                    <li>太陽光発電、蓄電池: <input type="text" name="こだわり-太陽光蓄電池" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-purple-500 outline-none"></li>
-                    <li>全館床暖房、空調システム: <input type="text" name="こだわり-床暖房空調" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-purple-500 outline-none"></li>
-                    <li>スマートホーム設備: <input type="text" name="こだわり-スマートホーム" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-purple-500 outline-none"></li>
-                    <li>その他: <input type="text" name="こだわり-その他" class="inline-block w-4/5 p-1 border-b border-gray-300 focus:border-purple-500 outline-none"></li>
-                </ul>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                <div>
-                    <label for="desired-floor-area" class="block text-gray-700 text-sm font-medium mb-2">希望する住宅の広さ（延床面積）:</label>
-                    <input type="text" id="desired-floor-area" name="desired-floor-area" class="w-full p-3 border border-gray-300 rounded-md focus:ring-purple-500 focus:border-purple-500 transition duration-200" placeholder="例: 120㎡、35坪">
-                </div>
-                <div>
-                    <label for="desired-land-conditions" class="block text-gray-700 text-sm font-medium mb-2">希望する土地の広さや場所の条件:</label>
-                    <input type="text" id="desired-land-conditions" name="desired-land-conditions" class="w-full p-3 border border-gray-300 rounded-md focus:ring-purple-500 focus:border-purple-500 transition duration-200" placeholder="例: 〇〇駅徒歩10分以内、日当たりが良い">
-                </div>
-                <div>
-                    <label for="car-count" class="block text-gray-700 text-sm font-medium mb-2">車は何台お持ちですか？</label>
-                    <input type="number" id="car-count" name="car-count" min="0" class="w-full p-3 border border-gray-300 rounded-md focus:ring-purple-500 focus:border-purple-500 transition duration-200" placeholder="例: 2">
-                </div>
-                <div>
-                    <label for="parking-requirements" class="block text-gray-700 text-sm font-medium mb-2">駐車スペースのご要望:</label>
-                    <input type="text" id="parking-requirements" name="parking-requirements" class="w-full p-3 border border-gray-300 rounded-md focus:ring-purple-500 focus:border-purple-500 transition duration-200" placeholder="例: 2台分、屋根付き">
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 5: 資金計画について -->
-        <div class="mb-10 p-6 bg-red-50 rounded-lg shadow-inner">
-            <h2 class="text-2xl font-semibold text-red-800 mb-6 border-b-2 border-red-200 pb-2">5. 資金計画について</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <label for="budget" class="block text-gray-700 text-sm font-medium mb-2">住宅のご予算はおおよそどのくらいでお考えですか？</label>
-                    <input type="text" id="budget" name="budget" class="w-full p-3 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500 transition duration-200" placeholder="例: 3,000万円〜4,000万円">
-                </div>
-                <div>
-                    <label for="self-funding" class="block text-gray-700 text-sm font-medium mb-2">自己資金はどのくらいご用意できますか？</label>
-                    <input type="text" id="self-funding" name="self-funding" class="w-full p-3 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500 transition duration-200" placeholder="例: 500万円">
-                </div>
-            </div>
-            <div class="mt-6">
-                <label class="block text-gray-700 text-sm font-medium mb-2">住宅ローンについて、ご検討状況はいかがですか？</label>
-                <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-                    <label class="inline-flex items-center">
-                        <input type="radio" name="loan-status" value="consulted" class="form-radio h-4 w-4 text-red-600">
-                        <span class="ml-2 text-gray-700">すでに金融機関に相談済み</span>
-                    </label>
-                    <label class="inline-flex items-center">
-                        <input type="radio" name="loan-status" value="will-consult" class="form-radio h-4 w-4 text-red-600">
-                        <span class="ml-2 text-gray-700">これから相談予定</span>
-                    </label>
-                    <label class="inline-flex items-center">
-                        <input type="radio" name="loan-status" value="not-considered" class="form-radio h-4 w-4 text-red-600">
-                        <span class="ml-2 text-gray-700">特に考えていない</span>
-                    </label>
-                </div>
-            </div>
-            <div class="mt-6">
-                <label for="monthly-loan-payment" class="block text-gray-700 text-sm font-medium mb-2">月々の住宅ローンの返済希望額はありますか？</label>
-                <input type="text" id="monthly-loan-payment" name="monthly-loan-payment" class="w-full p-3 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500 transition duration-200" placeholder="例: 10万円以内">
-            </div>
-            <div class="mt-6">
-                <label for="tax-and-fees" class="block text-gray-700 text-sm font-medium mb-2">税金や諸費用について、何か気になる点はありますか？</label>
-                <textarea id="tax-and-fees" name="tax-and-fees" rows="2" class="w-full p-3 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500 transition duration-200" placeholder="例: どのくらいかかるのか、控除について"></textarea>
-            </div>
-        </div>
-
-        <!-- Section 6: その他 -->
-        <div class="p-6 bg-gray-50 rounded-lg shadow-inner">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-6 border-b-2 border-gray-200 pb-2">6. その他</h2>
-            <div class="mb-6">
-                <label for="concerns-questions" class="block text-gray-700 text-sm font-medium mb-2">住宅建築に関して、ご不安な点や疑問点はありますか？</label>
-                <textarea id="concerns-questions" name="concerns-questions" rows="3" class="w-full p-3 border border-gray-300 rounded-md focus:ring-gray-500 focus:border-gray-500 transition duration-200" placeholder="例: 工期について、地震対策、アフターサービス"></textarea>
-            </div>
-            <div class="mb-6">
-                <label for="expectations-ichijo" class="block text-gray-700 text-sm font-medium mb-2">何か一条工務店に期待することはありますか？</label>
-                <textarea id="expectations-ichijo" name="expectations-ichijo" rows="3" class="w-full p-3 border border-gray-300 rounded-md focus:ring-gray-500 focus:border-gray-500 transition duration-200" placeholder="例: 高い断熱性能、デザイン性、きめ細やかなサポート"></textarea>
-            </div>
-            <div class="mb-6">
-                <label for="desired-information" class="block text-gray-700 text-sm font-medium mb-2">本日はどのような情報をお持ち帰りになりたいですか？</label>
-                <textarea id="desired-information" name="desired-information" rows="2" class="w-full p-3 border border-gray-300 rounded-md focus:ring-gray-500 focus:border-gray-500 transition duration-200" placeholder="例: 坪単価、モデルハウスの情報、補助金制度"></textarea>
-            </div>
-            <div>
-                <label for="next-meeting-preference" class="block text-gray-700 text-sm font-medium mb-2">次回お会いするご希望はありますか？</label>
-                <input type="text" id="next-meeting-preference" name="next-meeting-preference" class="w-full p-3 border border-gray-300 rounded-md focus:ring-gray-500 focus:border-gray-500 transition duration-200" placeholder="例: 展示場案内、個別相談、土地探し相談">
-            </div>
-        </div>
-
-        <div class="mt-12 text-center">
-            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300">
-                チェックリストを保存
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+            <button id="fetchNewsBtn"
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 w-full sm:w-auto">
+                ニュースを取得
             </button>
+            <div id="loadingSpinner" class="loader"></div>
+        </div>
+
+        <div id="newsContainer" class="space-y-6">
+            <!-- ニュース記事がここに動的に追加されます -->
+            <div class="bg-gray-50 p-4 rounded-lg shadow-sm border border-gray-200">
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">アプリの使い方</h3>
+                <p class="text-gray-600 text-sm">
+                    上記の「ニュースを取得」ボタンをクリックすると、株価に影響を与えそうなニュースの例が表示されます。<br>
+                    実際のアプリケーションでは、ここにリアルタイムのニュースが自動で表示されるようになります。
+                </p>
+            </div>
         </div>
     </div>
+
+    <script>
+        const fetchNewsBtn = document.getElementById('fetchNewsBtn');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const newsContainer = document.getElementById('newsContainer');
+
+        // ニュースデータを表示する関数
+        function displayNews(newsItems) {
+            newsContainer.innerHTML = ''; // 既存のニュースをクリア
+
+            if (newsItems.length === 0) {
+                newsContainer.innerHTML = `
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 text-yellow-700 p-4 rounded-lg" role="alert">
+                        <p class="font-bold">情報なし</p>
+                        <p>現在、表示できるニュースがありません。</p>
+                    </div>
+                `;
+                return;
+            }
+
+            newsItems.forEach(news => {
+                const newsCard = document.createElement('div');
+                newsCard.className = 'bg-white p-5 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition duration-200 ease-in-out';
+                newsCard.innerHTML = `
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">${news.title}</h3>
+                    <p class="text-gray-700 text-sm mb-3">${news.snippet}</p>
+                    <a href="${news.url}" target="_blank" rel="noopener noreferrer"
+                       class="text-blue-600 hover:text-blue-800 text-sm font-medium transition duration-200 ease-in-out">
+                        詳細を見る &rarr;
+                    </a>
+                `;
+                newsContainer.appendChild(newsCard);
+            });
+        }
+
+        // ニュース取得をシミュレーションする関数
+        async function fetchNews() {
+            fetchNewsBtn.disabled = true; // ボタンを無効化
+            loadingSpinner.style.display = 'block'; // スピナーを表示
+            newsContainer.innerHTML = ''; // ニュース表示エリアをクリア
+
+            try {
+                // 実際のAPIコールをここに記述します。
+                // 例: const response = await fetch('/api/get-stock-news');
+                //     const data = await response.json();
+                // このデモでは、ダミーデータを使用します。
+
+                // ネットワーク遅延をシミュレート
+                await new Promise(resolve => setTimeout(resolve, 2000)); // 2秒待機
+
+                // ダミーのニュースデータ
+                const dummyNews = [
+                    {
+                        title: "マルハニチロ、水産事業が好調で業績予想を上方修正",
+                        snippet: "2025年7月4日、マルハニチロ（1333）が、水産事業の堅調な推移により、通期業績予想を上方修正すると発表しました。株価へのポジティブな影響が期待されます。",
+                        url: "https://example.com/news/maruha-nichiro-up"
+                    },
+                    {
+                        title: "クスリのアオキ、新店舗展開加速で売上高が大幅増",
+                        snippet: "クスリのアオキホールディングス（3549）が、積極的な新規出店戦略により、第1四半期の売上高が前年同期比で大幅増を記録したと発表。市場の注目を集めています。",
+                        url: "https://example.com/news/kusuri-aoki-expansion"
+                    },
+                    {
+                        title: "放電精密加工研究所、半導体製造装置向け部品の受注が急増",
+                        snippet: "放電精密加工研究所（6469）は、世界的な半導体需要の拡大を受け、半導体製造装置向け精密部品の受注が急増していることを明らかにしました。株価は連日高値を更新しています。",
+                        url: "https://example.com/news/hoden-seimitsu-semicon"
+                    },
+                    {
+                        title: "霞ヶ関キャピタル、再生可能エネルギー事業への投資を拡大",
+                        snippet: "霞ヶ関キャピタル（3498）が、再生可能エネルギー分野への大規模投資計画を発表。環境意識の高まりを背景に、今後の成長が期待されています。",
+                        url: "https://example.com/news/kasumigaseki-capital-renewable"
+                    },
+                    {
+                        title: "キユーピー、海外市場での売上拡大が加速",
+                        snippet: "キユーピー（2809）は、特にアジア地域におけるマヨネーズやドレッシングの売上が好調で、海外事業の拡大が加速していると報告しました。",
+                        url: "https://example.com/news/kewpie-global"
+                    }
+                ];
+
+                displayNews(dummyNews);
+
+            } catch (error) {
+                console.error("ニュースの取得中にエラーが発生しました:", error);
+                newsContainer.innerHTML = `
+                    <div class="bg-red-50 border-l-4 border-red-400 text-red-700 p-4 rounded-lg" role="alert">
+                        <p class="font-bold">エラー発生</p>
+                        <p>ニュースの取得中に問題が発生しました。時間をおいて再度お試しください。</p>
+                    </div>
+                `;
+            } finally {
+                fetchNewsBtn.disabled = false; // ボタンを有効化
+                loadingSpinner.style.display = 'none'; // スピナーを非表示
+            }
+        }
+
+        // ボタンクリックイベントリスナー
+        fetchNewsBtn.addEventListener('click', fetchNews);
+
+        // アプリケーション起動時に初期メッセージを表示
+        window.onload = function() {
+            // 初期表示はHTMLに直接記述されているため、ここでは何もしません。
+            // 必要であれば、ここで自動的にニュースを取得することも可能です。
+            // fetchNews();
+        };
+    </script>
 </body>
 </html>
+
