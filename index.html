@@ -3,166 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>株価影響ニュースウォッチャー</title>
-    <!-- Tailwind CSS CDNの読み込み -->
+    <title>第三の神器：【意図の読解】実践チェックリスト</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Interフォントの指定 */
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f0f2f5; /* 背景色を少しグレーに */
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #002D84;
+            color: #f0f8ff;
         }
-        /* カスタムローディングスピナーのスタイル */
-        .loader {
-            border: 4px solid #f3f3f3; /* Light grey */
-            border-top: 4px solid #3498db; /* Blue */
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            display: none; /* 初期状態では非表示 */
+        .mono-font {
+            font-family: 'Roboto Mono', monospace;
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .gradient-text {
+            background: linear-gradient(90deg, #00F0B5, #00E0D8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card {
+            background-color: rgba(0, 45, 132, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 164, 216, 0.3);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .tape-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.1rem 0.5rem;
+            border-radius: 0.25rem;
+        }
+        .tape-buy {
+            background-color: rgba(0, 240, 181, 0.15);
+            color: #00F0B5;
+        }
+        .tape-sell {
+            background-color: rgba(255, 82, 82, 0.15);
+            color: #ff5252;
         }
     </style>
 </head>
-<body class="p-4 sm:p-6 md:p-8">
-    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-xl p-6 sm:p-8">
-        <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-6 text-center">
-            株価影響ニュースウォッチャー
-        </h1>
+<body class="antialiased">
 
-        <p class="text-gray-600 mb-6 text-center">
-            「ニュースを取得」ボタンを押すと、株価に影響を与えそうなニュースのシミュレーションが表示されます。<br>
-            ※このアプリはデモであり、実際のニュースデータは取得していません。
-        </p>
+    <div class="container mx-auto p-4 md:p-8">
 
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-            <button id="fetchNewsBtn"
-                    class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 w-full sm:w-auto">
-                ニュースを取得
-            </button>
-            <div id="loadingSpinner" class="loader"></div>
-        </div>
+        <header class="text-center my-8 md:my-12">
+            <h1 class="text-4xl md:text-5xl font-black mb-3">第三の神器：<span class="gradient-text">意図の読解</span></h1>
+            <p class="text-lg md:text-xl text-gray-300">エントリーの精度を極めるための実践チェックリスト</p>
+        </header>
 
-        <div id="newsContainer" class="space-y-6">
-            <!-- ニュース記事がここに動的に追加されます -->
-            <div class="bg-gray-50 p-4 rounded-lg shadow-sm border border-gray-200">
-                <h3 class="text-lg font-semibold text-gray-800 mb-2">アプリの使い方</h3>
-                <p class="text-gray-600 text-sm">
-                    上記の「ニュースを取得」ボタンをクリックすると、株価に影響を与えそうなニュースの例が表示されます。<br>
-                    実際のアプリケーションでは、ここにリアルタイムのニュースが自動で表示されるようになります。
+        <main class="space-y-12">
+            
+            <div class="card text-center">
+                <p class="text-lg text-gray-200 leading-relaxed max-w-3xl mx-auto">
+                    パターン認識と文脈理解によって優位性のある「戦場」と「好機」を特定したら、次はこの最終チェックリストの出番です。「今、この瞬間」のリアルタイムデータを読み解き、エントリーの最終判断を下します。
                 </p>
             </div>
-        </div>
+
+            <section id="dom" class="card">
+                <div class="text-center mb-6">
+                    <div class="text-5xl mb-2">🧱</div>
+                    <h2 class="text-3xl font-bold">STEP 1：板情報(DOM)の分析</h2>
+                    <p class="text-gray-300 mt-1">"見えざる壁"の存在を確認する</p>
+                </div>
+                <p class="text-center text-gray-300 mb-8 max-w-2xl mx-auto">板情報は、他の市場参加者の「どこで戦いたいか」という受動的な意図を示します。本物の壁か、偽物の罠かを見極めます。</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-4 rounded-lg bg-black/20">
+                        <h3 class="font-bold text-xl text-center text-[#00F0B5] mb-3">✅ 吸収 (Absorption)</h3>
+                        <p class="text-sm text-gray-300 mb-4">大量の売り注文を特定の価格帯が吸収し続ける現象。これは「見えない大口買い」が存在する強力なサインです。</p>
+                        <div class="mono-font p-3 rounded-lg bg-[#002D84]/50">
+                            <div class="flex justify-between text-gray-400 text-sm"><p>売数量</p><p>価格</p><p>買数量</p></div>
+                            <div class="h-px bg-blue-800 my-1"></div>
+                            <div class="flex justify-between"><p>5,000</p><p class="text-red-400">1002</p><p></p></div>
+                            <div class="flex justify-between"><p>15,000</p><p class="text-red-400">1001</p><p></p></div>
+                            <div class="flex justify-between font-bold bg-green-500/20 p-1 rounded"><p></p><p>1000</p><p>250,000+</p></div>
+                            <div class="flex justify-between"><p></p><p class="text-green-400">999</p><p>8,000</p></div>
+                        </div>
+                        <p class="text-xs text-center mt-2 font-bold text-green-400">意図：この価格は絶対に死守する</p>
+                    </div>
+                    
+                    <div class="p-4 rounded-lg bg-black/20">
+                        <h3 class="font-bold text-xl text-center text-red-400 mb-3">⚠️ 見せ玉 (Spoofing)</h3>
+                        <p class="text-sm text-gray-300 mb-4">価格が近づくと消える不自然に厚い板。他の投資家を誘うための「罠」であり、信頼性は皆無です。</p>
+                        <div class="mono-font p-3 rounded-lg bg-[#002D84]/50">
+                            <div class="flex justify-between text-gray-400 text-sm"><p>売数量</p><p>価格</p><p>買数量</p></div>
+                            <div class="h-px bg-blue-800 my-1"></div>
+                            <div class="flex justify-between"><p>5,000</p><p class="text-red-400">1002</p><p></p></div>
+                            <div class="flex justify-between"><p>15,000</p><p class="text-red-400">1001</p><p></p></div>
+                            <div class="flex justify-between font-bold bg-yellow-500/20 p-1 rounded opacity-50"><p></p><p>1000</p><p><s>250,000</s> → 500</p></div>
+                            <div class="flex justify-between"><p></p><p class="text-green-400">999</p><p>8,000</p></div>
+                        </div>
+                         <p class="text-xs text-center mt-2 font-bold text-red-400">意図：買いを誘い、自分は売る</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tape" class="card">
+                <div class="text-center mb-6">
+                    <div class="text-5xl mb-2">🌊</div>
+                    <h2 class="text-3xl font-bold">STEP 2：歩み値(テープ)の分析</h2>
+                    <p class="text-gray-300 mt-1">"攻撃性"の勢いをリアルタイムで測定する</p>
+                </div>
+                <p class="text-center text-gray-300 mb-8 max-w-2xl mx-auto">歩み値は、「今すぐ約定させたい」という攻撃的な意図を示します。トレンドの燃料が十分か、それとも枯渇寸前かを見極めます。</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                     <div class="p-4 rounded-lg bg-black/20">
+                        <h3 class="font-bold text-xl text-center text-[#00F0B5] mb-3">🚀 勢いの継続 (Momentum)</h3>
+                        <p class="text-sm text-gray-300 mb-4">大口の買い注文が途切れることなく続き、価格を押し上げている状態。トレンドが強いことを示します。</p>
+                        <div class="mono-font text-sm space-y-1 p-3 rounded-lg bg-[#002D84]/50 h-40 overflow-y-hidden">
+                            <div class="tape-row tape-buy"><p>1000.50</p><p>5,000</p></div>
+                            <div class="tape-row tape-buy"><p>1000.50</p><p>8,000</p></div>
+                            <div class="tape-row tape-buy font-bold"><p>1001.00</p><p>12,000</p></div>
+                            <div class="tape-row tape-sell"><p>1000.50</p><p>500</p></div>
+                            <div class="tape-row tape-buy"><p>1001.00</p><p>10,000</p></div>
+                        </div>
+                        <p class="text-xs text-center mt-2 font-bold text-green-400">意図：もっと上へ行きたい</p>
+                    </div>
+                     <div class="p-4 rounded-lg bg-black/20">
+                        <h3 class="font-bold text-xl text-center text-red-400 mb-3">⛽️ 枯渇 (Exhaustion)</h3>
+                        <p class="text-sm text-gray-300 mb-4">トレンドの先端で約定サイズが小さくなり、ペースが鈍化する現象。トレンドの燃料切れを示唆します。</p>
+                        <div class="mono-font text-sm space-y-1 p-3 rounded-lg bg-[#002D84]/50 h-40 overflow-y-hidden">
+                            <div class="tape-row tape-buy font-bold"><p>1010.00</p><p>15,000</p></div>
+                            <div class="tape-row tape-buy"><p>1010.50</p><p>8,000</p></div>
+                            <div class="tape-row tape-buy text-gray-400"><p>1010.50</p><p>500</p></div>
+                            <div class="tape-row tape-buy text-gray-500"><p>1010.50</p><p>200</p></div>
+                            <div class="tape-row tape-sell"><p>1010.00</p><p>1,000</p></div>
+                        </div>
+                        <p class="text-xs text-center mt-2 font-bold text-red-400">意図：買いの勢いが尽きた</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="final" class="card">
+                <div class="text-center mb-6">
+                     <h2 class="text-3xl font-bold">最終判断：三位一体での確認フロー</h2>
+                     <p class="text-gray-300 mt-1">仮説を立て、リアルタイムデータで検証し、実行する</p>
+                </div>
+                <div class="flex flex-col md:flex-row justify-center items-center md:items-start text-center">
+                    <div class="w-full md:w-1/3 p-2">
+                        <div class="p-4 border-2 border-dashed border-[#00A4D8] rounded-lg h-full">
+                            <p class="font-bold text-lg text-[#00F0B5]">1. 仮説立案</p>
+                            <p class="text-sm text-gray-300 mt-2">パターン認識と文脈理解に基づき、「このサポートラインで反発する可能性が高い」という仮説を立てる。</p>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-auto flex justify-center items-center text-3xl text-[#00E0D8] font-black my-2 md:my-0 md:mx-4">
+                        <span class="md:hidden">▼</span>
+                        <span class="hidden md:block">→</span>
+                    </div>
+                    <div class="w-full md:w-1/3 p-2">
+                        <div class="p-4 border-2 border-dashed border-[#00A4D8] rounded-lg h-full">
+                            <p class="font-bold text-lg text-[#00E0D8]">2. 最終検証</p>
+                            <p class="text-sm text-gray-300 mt-2">板で「吸収」が起きているか？<br>テープで売り手の「枯渇」が見えるか？リアルタイムデータで仮説を裏付ける。</p>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-auto flex justify-center items-center text-3xl text-[#00A4D8] font-black my-2 md:my-0 md:mx-4">
+                        <span class="md:hidden">▼</span>
+                        <span class="hidden md:block">→</span>
+                    </div>
+                    <div class="w-full md:w-1/3 p-2">
+                        <div class="p-4 border-2 border-solid border-[#00F0B5] rounded-lg bg-[#00F0B5]/10 h-full">
+                            <p class="font-bold text-lg text-white">3. 実行</p>
+                            <p class="text-sm text-gray-300 mt-2">全ての条件が揃った時、それは期待値の高いエントリーシグナルとなる。自信を持って引き金を引く。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center text-gray-500 mt-12 text-xs">
+            <p>&copy; 2025 Canvas Infographics. All rights reserved.</p>
+            <p class="mt-1">この情報は投資助言を目的としたものではありません。投資の最終決定はご自身の判断と責任で行ってください。</p>
+        </footer>
     </div>
-
-    <script>
-        const fetchNewsBtn = document.getElementById('fetchNewsBtn');
-        const loadingSpinner = document.getElementById('loadingSpinner');
-        const newsContainer = document.getElementById('newsContainer');
-
-        // ニュースデータを表示する関数
-        function displayNews(newsItems) {
-            newsContainer.innerHTML = ''; // 既存のニュースをクリア
-
-            if (newsItems.length === 0) {
-                newsContainer.innerHTML = `
-                    <div class="bg-yellow-50 border-l-4 border-yellow-400 text-yellow-700 p-4 rounded-lg" role="alert">
-                        <p class="font-bold">情報なし</p>
-                        <p>現在、表示できるニュースがありません。</p>
-                    </div>
-                `;
-                return;
-            }
-
-            newsItems.forEach(news => {
-                const newsCard = document.createElement('div');
-                newsCard.className = 'bg-white p-5 rounded-lg shadow-md border border-gray-200 hover:shadow-lg transition duration-200 ease-in-out';
-                newsCard.innerHTML = `
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">${news.title}</h3>
-                    <p class="text-gray-700 text-sm mb-3">${news.snippet}</p>
-                    <a href="${news.url}" target="_blank" rel="noopener noreferrer"
-                       class="text-blue-600 hover:text-blue-800 text-sm font-medium transition duration-200 ease-in-out">
-                        詳細を見る &rarr;
-                    </a>
-                `;
-                newsContainer.appendChild(newsCard);
-            });
-        }
-
-        // ニュース取得をシミュレーションする関数
-        async function fetchNews() {
-            fetchNewsBtn.disabled = true; // ボタンを無効化
-            loadingSpinner.style.display = 'block'; // スピナーを表示
-            newsContainer.innerHTML = ''; // ニュース表示エリアをクリア
-
-            try {
-                // 実際のAPIコールをここに記述します。
-                // 例: const response = await fetch('/api/get-stock-news');
-                //     const data = await response.json();
-                // このデモでは、ダミーデータを使用します。
-
-                // ネットワーク遅延をシミュレート
-                await new Promise(resolve => setTimeout(resolve, 2000)); // 2秒待機
-
-                // ダミーのニュースデータ
-                const dummyNews = [
-                    {
-                        title: "マルハニチロ、水産事業が好調で業績予想を上方修正",
-                        snippet: "2025年7月4日、マルハニチロ（1333）が、水産事業の堅調な推移により、通期業績予想を上方修正すると発表しました。株価へのポジティブな影響が期待されます。",
-                        url: "https://example.com/news/maruha-nichiro-up"
-                    },
-                    {
-                        title: "クスリのアオキ、新店舗展開加速で売上高が大幅増",
-                        snippet: "クスリのアオキホールディングス（3549）が、積極的な新規出店戦略により、第1四半期の売上高が前年同期比で大幅増を記録したと発表。市場の注目を集めています。",
-                        url: "https://example.com/news/kusuri-aoki-expansion"
-                    },
-                    {
-                        title: "放電精密加工研究所、半導体製造装置向け部品の受注が急増",
-                        snippet: "放電精密加工研究所（6469）は、世界的な半導体需要の拡大を受け、半導体製造装置向け精密部品の受注が急増していることを明らかにしました。株価は連日高値を更新しています。",
-                        url: "https://example.com/news/hoden-seimitsu-semicon"
-                    },
-                    {
-                        title: "霞ヶ関キャピタル、再生可能エネルギー事業への投資を拡大",
-                        snippet: "霞ヶ関キャピタル（3498）が、再生可能エネルギー分野への大規模投資計画を発表。環境意識の高まりを背景に、今後の成長が期待されています。",
-                        url: "https://example.com/news/kasumigaseki-capital-renewable"
-                    },
-                    {
-                        title: "キユーピー、海外市場での売上拡大が加速",
-                        snippet: "キユーピー（2809）は、特にアジア地域におけるマヨネーズやドレッシングの売上が好調で、海外事業の拡大が加速していると報告しました。",
-                        url: "https://example.com/news/kewpie-global"
-                    }
-                ];
-
-                displayNews(dummyNews);
-
-            } catch (error) {
-                console.error("ニュースの取得中にエラーが発生しました:", error);
-                newsContainer.innerHTML = `
-                    <div class="bg-red-50 border-l-4 border-red-400 text-red-700 p-4 rounded-lg" role="alert">
-                        <p class="font-bold">エラー発生</p>
-                        <p>ニュースの取得中に問題が発生しました。時間をおいて再度お試しください。</p>
-                    </div>
-                `;
-            } finally {
-                fetchNewsBtn.disabled = false; // ボタンを有効化
-                loadingSpinner.style.display = 'none'; // スピナーを非表示
-            }
-        }
-
-        // ボタンクリックイベントリスナー
-        fetchNewsBtn.addEventListener('click', fetchNews);
-
-        // アプリケーション起動時に初期メッセージを表示
-        window.onload = function() {
-            // 初期表示はHTMLに直接記述されているため、ここでは何もしません。
-            // 必要であれば、ここで自動的にニュースを取得することも可能です。
-            // fetchNews();
-        };
-    </script>
 </body>
 </html>
+```
+
+
 
