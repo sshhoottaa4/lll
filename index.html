@@ -3,473 +3,328 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tl;dv セキュリティ & ROI インフォグラフィック</title>
+    <title>紹介キャンペーン効果検証インフォグラフィック</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', 'Noto Sans JP', sans-serif;
-            background-color: #f8fafc;
         }
         .chart-container {
             position: relative;
             width: 100%;
-            height: 320px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
             max-height: 400px;
+        }
+        .doughnut-chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 280px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 280px;
         }
         @media (min-width: 768px) {
             .chart-container {
-                height: 400px;
+                height: 350px;
             }
-        }
-        .gradient-text {
-            background: linear-gradient(to right, #0a9396, #005f73);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .kpi-card {
-            background-color: white;
-            border-radius: 0.75rem;
-            padding: 2rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            border-left: 5px solid #0a9396;
-        }
-        .flow-step {
-            display: flex;
-            align-items: center;
-            padding: 1rem;
-            background-color: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 0.5rem;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-        }
-        .flow-arrow {
-            font-size: 2rem;
-            color: #94d2bd;
-            margin: 0 1rem;
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
+<body class="bg-[#073B4C] text-gray-800">
 
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4">
-            <h1 class="text-2xl md:text-3xl font-bold text-slate-900">
-                AI会議アシスタント <span class="gradient-text">tl;dv</span>: セキュリティリスクとビジネス価値の定量的評価
-            </h1>
-        </div>
-    </header>
+    <div class="container mx-auto p-4 md:p-8">
 
-    <main class="container mx-auto p-4 md:p-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">紹介料倍増キャンペーン</h1>
+            <p class="text-xl md:text-2xl text-[#FFD166]">効果検証インフォグラフィック</p>
+        </header>
 
-        <section id="introduction" class="mb-16 text-center">
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-4">その懸念、データで解消します。</h2>
-            <p class="max-w-3xl mx-auto text-lg text-slate-600">
-                「機密情報を含む会議の記録が、社外のサーバーに保管されるのは問題ではないか？」<br>
-                これは正当な懸念です。本インフォグラフィックは、その問いに客観的なデータで回答します。tl;dvのセキュリティ体制を、既に社内で承認済みのツールと比較・分析し、導入がもたらす価値を可視化します。
-            </p>
-        </section>
+        <main class="space-y-8">
 
-        <section id="data-location" class="mb-16">
-            <h3 class="text-2xl font-bold text-center mb-2">論点1：データはどこにあるのか？</h3>
-            <p class="text-slate-600 text-center max-w-2xl mx-auto mb-8">
-                「データは会社管理ドメイン内に」という原則は重要です。しかし、この「管理」の定義は進化しています。物理的な場所だけでなく、法的な保護と技術的な管理能力が本質です。社内ツールにおける「現実的なリスク許容度」を見てみましょう。
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div class="bg-white p-6 rounded-lg shadow-lg border-t-4 border-[#0a9396]">
-                    <h4 class="text-xl font-bold mb-2">tl;dv</h4>
-                    <p class="text-5xl mb-4">🇪🇺</p>
-                    <p class="font-semibold text-lg">EU域内</p>
-                    <p class="text-slate-500 mt-2">世界で最も厳格なデータ保護法<strong class="text-[#005f73]">GDPR</strong>の保護下にあります。</p>
+            <section class="bg-white rounded-2xl shadow-2xl p-6 md:p-8 text-center">
+                <h2 class="text-2xl font-bold text-[#118AB2] mb-4">キャンペーンの核心的成果</h2>
+                <p class="text-gray-600 mb-6">39期に実施した「倍キャン」は、紹介活動の効率を劇的に改善しました。</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-gray-50 rounded-xl p-6 flex flex-col justify-center">
+                        <p class="text-lg text-gray-500">キャンペーン期間中の</p>
+                        <p class="text-5xl md:text-6xl font-bold text-[#06D6A0] my-2">紹介数</p>
+                        <p class="text-xl text-gray-500">38期 14件 → 39期 <span class="font-bold text-3xl md:text-4xl text-gray-800">29</span>件</p>
+                        <p class="text-lg font-bold text-[#06D6A0] mt-1">2倍以上に増加</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-6 flex flex-col justify-center">
+                        <p class="text-lg text-gray-500">キャンペーン期間中の</p>
+                        <p class="text-5xl md:text-6xl font-bold text-[#FF6B6B] my-2">紹介率</p>
+                        <p class="text-xl text-gray-500">38期 1.19% → 39期 <span class="font-bold text-3xl md:text-4xl text-gray-800">3.64</span>%</p>
+                        <p class="text-sm text-gray-400 mt-1">(38期: 14件/1173配布, 39期: 29件/797配布)</p>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg border-t-4 border-slate-400">
-                    <h4 class="text-xl font-bold mb-2">LINE WORKS (社内基準)</h4>
-                    <p class="text-5xl mb-4">🇯🇵</p>
-                    <p class="font-semibold text-lg">日本国内</p>
-                    <p class="text-slate-500 mt-2">データ主権を最優先する、最も厳格な国内保管モデルです。</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg border-t-4 border-[#ee9b00]">
-                    <h4 class="text-xl font-bold mb-2">ANDPAD (社内承認済)</h4>
-                    <p class="text-5xl mb-4">🇯🇵 + 🇺🇸</p>
-                    <p class="font-semibold text-lg">日本 + 北米 (バックアップ)</p>
-                    <p class="text-slate-500 mt-2">事業継続性のために<strong class="text-[#ca6702]">国外へのデータ保管を許容</strong>した前例です。</p>
-                </div>
-            </div>
-            <div class="mt-8 bg-teal-50 border-l-4 border-teal-500 text-teal-800 p-4 rounded-r-lg">
-                <p class="font-bold">結論：</p>
-                <p>ANDPADの事例は、事業上の合理的な理由があれば国外保管も許容されるという「社内リスク基準」を示しています。tl;dvのEU保管は、この基準の範囲内で評価可能です。</p>
-            </div>
-        </section>
+            </section>
 
-        <section id="security-comparison" class="mb-16">
-            <h3 class="text-2xl font-bold text-center mb-2">論点2：セキュリティ体制の強度は？</h3>
-            <p class="text-slate-600 text-center max-w-2xl mx-auto mb-8">
-                ツールの安全性は、多角的な視点での評価が不可欠です。主要なセキュリティ項目について、3つのツールを客観的に比較します。
-            </p>
-            <div class="bg-white p-6 rounded-lg shadow-lg">
-                <div class="chart-container mx-auto max-w-2xl">
-                    <canvas id="securityRadarChart"></canvas>
+            <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white rounded-2xl shadow-2xl p-6 md:p-8">
+                    <h3 class="text-2xl font-bold mb-1">年間実績比較 (39期 vs 38期)</h3>
+                    <p class="text-gray-600 mb-4">紹介数と契約数は同水準を維持。活動の質が向上したことが伺えます。</p>
+                    <div class="chart-container h-80 md:h-[350px]">
+                        <canvas id="annualPerformanceChart"></canvas>
+                    </div>
                 </div>
-                <p class="text-sm text-slate-500 mt-4 text-center">
-                    スコアは5段階評価（5:非常に高い/先進的、1:低い/情報なし）。評価はレポート本文の分析に基づく。
+                <div class="bg-white rounded-2xl shadow-2xl p-6 md:p-8">
+                    <h3 class="text-2xl font-bold mb-1">キャンペーン期間 紹介数比較</h3>
+                    <p class="text-gray-600 mb-4">インセンティブ強化により、紹介数は2倍以上に増加。施策の効果は明らかです。</p>
+                    <div class="chart-container h-80 md:h-[350px]">
+                        <canvas id="campaignPerformanceChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-white rounded-2xl shadow-2xl p-6 md:p-8">
+                <h3 class="text-2xl font-bold text-center mb-1">月別紹介数の推移</h3>
+                <p class="text-gray-600 text-center mb-4">39期の紹介数はキャンペーン期間である10月〜12月に急増し、その後も高い水準で推移しています。</p>
+                <div class="chart-container h-80 md:h-96 max-w-4xl">
+                    <canvas id="monthlyTrendChart"></canvas>
+                </div>
+            </section>
+
+            <section class="bg-white rounded-2xl shadow-2xl p-6 md:p-8">
+                <h3 class="text-2xl font-bold text-center mb-1">事業全体への貢献度</h3>
+                <p class="text-gray-600 text-center mb-6">総契約数が減少する厳しい状況下で、紹介契約は安定して事業を下支え。その重要性は年々高まっています。</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="text-center">
+                        <h4 class="text-xl font-bold text-gray-700 mb-2">38期</h4>
+                        <div class="doughnut-chart-container">
+                            <canvas id="compositionChart38"></canvas>
+                        </div>
+                        <p class="mt-4 text-lg">紹介契約率: <span class="font-bold text-2xl text-[#FFD166]">12.9%</span></p>
+                        <p class="text-gray-500 text-sm">(23件 / 総契約数 178件)</p>
+                    </div>
+                    <div class="text-center">
+                        <h4 class="text-xl font-bold text-gray-700 mb-2">39期</h4>
+                        <div class="doughnut-chart-container">
+                            <canvas id="compositionChart39"></canvas>
+                        </div>
+                        <p class="mt-4 text-lg">紹介契約率: <span class="font-bold text-2xl text-[#06D6A0]">14.0%</span></p>
+                        <p class="text-gray-500 text-sm">(22件 / 総契約数 157件)</p>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="text-center text-white py-6">
+                <h3 class="text-2xl font-bold text-white mb-2">結論と提言</h3>
+                <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+                    39期の「紹介料倍増キャンペーン」は、紹介数・紹介率の向上に絶大な効果を発揮しました。総契約数が減少する中でも安定した成果を出す紹介契約は、事業の根幹を支える重要な柱です。費用対効果が極めて高い本施策の定期的な実施は、持続的な受注増加に不可欠な戦略です。
                 </p>
-            </div>
-        </section>
+            </footer>
 
-        <section id="certification" class="mb-16">
-            <h3 class="text-2xl font-bold text-center mb-2">深掘り①：第三者認証の意味</h3>
-            <p class="text-slate-600 text-center max-w-2xl mx-auto mb-8">
-                「SOC 2」と「ISO 27001」はどちらも信頼性の証ですが、評価の焦点が異なります。tl;dvが取得しているSOC 2は、セキュリティ管理策の有効性をより直接的に証明するものです。
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h4 class="text-xl font-bold mb-4 text-center">ISO 27001 (ISMS)</h4>
-                    <div class="space-y-4">
-                        <div class="flow-step">
-                            <span class="text-2xl mr-4">⚙️</span>
-                            <div>
-                                <h5 class="font-bold">焦点</h5>
-                                <p>情報セキュリティを管理する「仕組み (マネジメントシステム)」の存在と運用</p>
-                            </div>
-                        </div>
-                        <div class="flow-step">
-                            <span class="text-2xl mr-4">🔄</span>
-                            <div>
-                                <h5 class="font-bold">アプローチ</h5>
-                                <p>PDCAサイクルによる継続的なリスク管理プロセスの確立</p>
-                            </div>
-                        </div>
-                        <div class="flow-step">
-                            <span class="text-2xl mr-4">📜</span>
-                            <div>
-                                <h5 class="font-bold">証明するもの</h5>
-                                <p>「組織としてセキュリティに取り組む<strong class="text-[#005f73]">プロセス</strong>が整っている」</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg border-2 border-[#0a9396]">
-                    <h4 class="text-xl font-bold mb-4 text-center">SOC 2</h4>
-                    <div class="space-y-4">
-                        <div class="flow-step">
-                            <span class="text-2xl mr-4">🛡️</span>
-                            <div>
-                                <h5 class="font-bold">焦点</h5>
-                                <p>セキュリティ、可用性などに関する具体的な「管理策 (コントロール)」そのもの</p>
-                            </div>
-                        </div>
-                        <div class="flow-step">
-                            <span class="text-2xl mr-4">🕵️</span>
-                            <div>
-                                <h5 class="font-bold">アプローチ</h5>
-                                <p>独立した監査人による、管理策の設計と運用有効性の評価</p>
-                            </div>
-                        </div>
-                         <div class="flow-step">
-                            <span class="text-2xl mr-4">📄</span>
-                            <div>
-                                <h5 class="font-bold">証明するもの</h5>
-                                <p>「具体的なセキュリティ対策が<strong class="text-[#005f73]">有効に機能している</strong>」</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </main>
+    </div>
 
-        <section id="ai-privacy" class="mb-16">
-            <h3 class="text-2xl font-bold text-center mb-2">深掘り②：AIは私たちのデータを学習するのか？</h3>
-            <p class="text-slate-600 text-center max-w-2xl mx-auto mb-8">
-                これはAIツール導入における最大の懸念です。tl;dvは「顧客データはAIのトレーニングに一切使用しない」と断言し、技術的な保護措置を講じています。
-            </p>
-            <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg">
-                <h4 class="text-xl font-bold text-center mb-6">tl;dvのAIデータ保護プロセス</h4>
-                <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
-                    <div class="flow-step w-full md:w-auto">
-                        <span class="text-2xl mr-4">🎙️</span>
-                        <div>
-                            <h5 class="font-bold">Step 1: 会議データ</h5>
-                            <p>録画・文字起こしデータ</p>
-                        </div>
-                    </div>
-                    <div class="flow-arrow hidden md:block">→</div>
-                    <div class="transform rotate-90 md:rotate-0 text-3xl text-slate-300">↓</div>
-                    <div class="flow-step w-full md:w-auto bg-teal-50">
-                        <span class="text-2xl mr-4">🎭</span>
-                        <div>
-                            <h5 class="font-bold text-[#005f73]">Step 2: 匿名化</h5>
-                            <p>個人情報 (氏名, メール) を除去</p>
-                        </div>
-                    </div>
-                    <div class="flow-arrow hidden md:block">→</div>
-                    <div class="transform rotate-90 md:rotate-0 text-3xl text-slate-300">↓</div>
-                    <div class="flow-step w-full md:w-auto bg-teal-50">
-                        <span class="text-2xl mr-4">🧩</span>
-                        <div>
-                            <h5 class="font-bold text-[#005f73]">Step 3: 断片化 &amp; ランダム化</h5>
-                            <p>データを細切れにし、順序を混ぜる</p>
-                        </div>
-                    </div>
-                    <div class="flow-arrow hidden md:block">→</div>
-                    <div class="transform rotate-90 md:rotate-0 text-3xl text-slate-300">↓</div>
-                    <div class="flow-step w-full md:w-auto">
-                        <span class="text-2xl mr-4">🤖</span>
-                        <div>
-                            <h5 class="font-bold">Step 4: AI処理</h5>
-                            <p>文脈を失った断片データで要約生成</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-8 bg-red-50 border-l-4 border-red-500 text-red-800 p-4 rounded-r-lg">
-                    <p class="font-bold">最重要コミットメント：</p>
-                    <p>このプロセスにより、AIモデルが会議の全体像を学習することは不可能です。tl;dvは顧客データが自社AIモデルの改善に使われることを明確に禁止しています。</p>
-                </div>
-            </div>
-        </section>
+    <script>
+        const FONT_COLOR = '#374151';
+        const GRID_COLOR = '#E5E7EB';
+        
+        const wrapLabel = (label) => {
+            const maxLength = 16;
+            if (typeof label !== 'string' || label.length <= maxLength) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + word).length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            }
+            lines.push(currentLine.trim());
+            return lines.filter(line => line);
+        };
 
-        <section id="roi" class="mb-16">
-            <h3 class="text-2xl font-bold text-center mb-2">論点3：導入しない場合の「隠れたコスト」は？</h3>
-            <p class="text-slate-600 text-center max-w-2xl mx-auto mb-8">
-                セキュリティリスクの議論は、ビジネス価値との比較で初めて意味を持ちます。現状維持は、見えないコストを払い続けることを意味します。
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="kpi-card">
-                    <p class="text-slate-500 text-lg">手作業による議事録作成</p>
-                    <p class="text-7xl font-extrabold my-4 gradient-text">320</p>
-                    <p class="text-slate-600 text-2xl font-bold">時間 / 年</p>
-                    <p class="text-slate-500 mt-2">(従業員1人あたりの平均、約2ヶ月の労働時間に相当)</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h4 class="text-lg font-bold text-center mb-4">営業10名のチームにおける年間ROI試算</h4>
-                    <div class="chart-container">
-                        <canvas id="roiBarChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="conclusion" class="text-center">
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-4">結論：リスクは管理可能。価値は測定可能。</h2>
-            <p class="max-w-3xl mx-auto text-lg text-slate-600 mb-8">
-                tl;dvのセキュリティリスクは、社内承認済みのANDPADと同等レベルであり、管理可能です。一方で、議事録作成の自動化がもたらす生産性向上とコスト削減効果は絶大です。リスクを恐れて行動しないのではなく、リスクを管理しながら前進すべきです。
-            </p>
-            <div class="bg-white p-8 rounded-lg shadow-2xl inline-block">
-                <h3 class="text-xl font-bold mb-4">提言：段階的導入アプローチ</h3>
-                <ol class="text-left space-y-3">
-                    <li class="flex items-start">
-                        <span class="bg-[#0a9396] text-white rounded-full h-8 w-8 text-center leading-8 font-bold mr-4">1</span>
-                        <div>
-                            <h4 class="font-bold">利用ポリシーの策定</h4>
-                            <p class="text-slate-600">まずは「社外秘」レベルまでの会議に利用を限定する。</p>
-                        </div>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="bg-[#0a9396] text-white rounded-full h-8 w-8 text-center leading-8 font-bold mr-4">2</span>
-                        <div>
-                            <h4 class="font-bold">技術的・契約的統制</h4>
-                            <p class="text-slate-600">SSOを必須化し、データ処理契約(DPA)を締結する。</p>
-                        </div>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="bg-[#0a9396] text-white rounded-full h-8 w-8 text-center leading-8 font-bold mr-4">3</span>
-                        <div>
-                            <h4 class="font-bold">効果測定と拡大検討</h4>
-                            <p class="text-slate-600">パイロットチームでROIを測定し、全社展開を判断する。</p>
-                        </div>
-                    </li>
-                </ol>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="text-center p-6 bg-slate-800 text-slate-400 mt-16">
-        <p>本インフォグラフィックは、公開情報および提供された分析レポートに基づき作成されたものです。</p>
-        <p class="text-sm mt-2">&copy; 2025 Your Company Name. All Rights Reserved.</p>
-    </footer>
-
-<script>
-    const tooltipTitleCallback = (tooltipItems) => {
-        const item = tooltipItems[0];
-        let label = item.chart.data.labels[item.dataIndex];
-        if (Array.isArray(label)) {
-            return label.join(' ');
-        }
-        return label;
-    };
-
-    const wrapLabel = (label, maxLength = 16) => {
-        if (label.length <= maxLength) {
-            return label;
-        }
-        const words = label.split(' ');
-        const lines = [];
-        let currentLine = '';
-        words.forEach(word => {
-            if ((currentLine + ' ' + word).length > maxLength && currentLine.length > 0) {
-                lines.push(currentLine);
-                currentLine = word;
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
             } else {
-                currentLine += (currentLine.length === 0 ? '' : ' ') + word;
+                return label;
             }
-        });
-        lines.push(currentLine);
-        return lines;
-    };
+        };
 
-    const brilliantBluesPalette = {
-        darkTeal: '#005f73',
-        mediumTeal: '#0a9396',
-        lightTeal: '#94d2bd',
-        paleYellow: '#e9d8a6',
-        orange: '#ee9b00',
-        burntOrange: '#ca6702',
-        red: '#ae2012',
-    };
-
-    const securityRadarCtx = document.getElementById('securityRadarChart');
-    if (securityRadarCtx) {
-        new Chart(securityRadarCtx, {
-            type: 'radar',
-            data: {
-                labels: [
-                    'データ保管地の法的保護 (GDPR/国内法)', 
-                    '第三者認証 (SOC 2/ISO)', 
-                    'AIプライバシー保護', 
-                    '暗号化強度 (AES-256)', 
-                    'アクセス管理 (SSO)'
-                ].map(l => wrapLabel(l)),
-                datasets: [{
-                    label: 'tl;dv',
-                    data: [5, 4, 5, 5, 5],
-                    backgroundColor: 'rgba(10, 147, 150, 0.2)',
-                    borderColor: brilliantBluesPalette.mediumTeal,
-                    pointBackgroundColor: brilliantBluesPalette.mediumTeal,
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: brilliantBluesPalette.mediumTeal
-                }, {
-                    label: 'LINE WORKS',
-                    data: [5, 5, 1, 5, 5],
-                    backgroundColor: 'rgba(148, 163, 184, 0.2)',
-                    borderColor: '#64748b',
-                    pointBackgroundColor: '#64748b',
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: '#64748b'
-                }, {
-                    label: 'ANDPAD',
-                    data: [3, 3, 1, 4, 5],
-                    backgroundColor: 'rgba(238, 155, 0, 0.2)',
-                    borderColor: brilliantBluesPalette.orange,
-                    pointBackgroundColor: brilliantBluesPalette.orange,
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: brilliantBluesPalette.orange
-                }]
-            },
-            options: {
-                maintainAspectRatio: false,
-                scales: {
-                    r: {
-                        angleLines: {
-                            color: '#e2e8f0'
-                        },
-                        grid: {
-                            color: '#e2e8f0'
-                        },
-                        pointLabels: {
-                            font: {
-                                size: 12
-                            },
-                            color: '#334155'
-                        },
-                        ticks: {
-                            backdropColor: 'rgba(255, 255, 255, 0.75)',
-                            stepSize: 1,
-                            max: 5,
-                            min: 0
-                        }
+        const CHART_DEFAULTS = {
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: FONT_COLOR,
+                        font: { size: 14 },
+                        padding: 20
                     }
                 },
-                plugins: {
-                    tooltip: {
-                        callbacks: {
-                            title: tooltipTitleCallback
-                        }
-                    },
-                    legend: {
-                        position: 'top',
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
                     }
                 }
-            }
-        });
-    }
+            },
+            scales: {
+                x: {
+                    ticks: { 
+                        color: FONT_COLOR,
+                        font: { size: 12 }
+                    },
+                    grid: { color: GRID_COLOR }
+                },
+                y: {
+                    ticks: { 
+                        color: FONT_COLOR,
+                        font: { size: 12 }
+                    },
+                    grid: { color: GRID_COLOR },
+                    beginAtZero: true
+                }
+            },
+            maintainAspectRatio: false
+        };
 
-    const roiBarCtx = document.getElementById('roiBarChart');
-    if (roiBarCtx) {
-        new Chart(roiBarCtx, {
-            type: 'bar',
-            data: {
-                labels: ['現状の隠れコスト', 'tl;dv導入後の価値'],
-                datasets: [{
-                    label: '年間コスト (円)',
-                    data: [4992000, 4992000 - (18 * 150 * 12 * 10)],
-                    backgroundColor: [
-                        brilliantBluesPalette.red,
-                        brilliantBluesPalette.mediumTeal,
-                    ],
-                    borderColor: [
-                        brilliantBluesPalette.red,
-                        brilliantBluesPalette.mediumTeal,
-                    ],
+        const annualPerformanceData = {
+            labels: ['紹介数', '契約数'].map(wrapLabel),
+            datasets: [
+                {
+                    label: '38期',
+                    data: [90, 23],
+                    backgroundColor: '#FFD166',
+                    borderColor: '#FFD166',
                     borderWidth: 1
-                }]
-            },
-            options: {
-                maintainAspectRatio: false,
-                indexAxis: 'y',
-                scales: {
-                    x: {
-                        beginAtZero: true,
-                        ticks: {
-                            callback: function(value, index, values) {
-                                return (value / 10000) + '万円';
-                            }
-                        }
-                    }
                 },
-                plugins: {
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                let label = context.dataset.label || '';
-                                if (label) {
-                                    label += ': ';
-                                }
-                                if (context.parsed.x !== null) {
-                                    label += new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(context.parsed.x);
-                                }
-                                return label;
-                            }
+                {
+                    label: '39期',
+                    data: [91, 22],
+                    backgroundColor: '#06D6A0',
+                    borderColor: '#06D6A0',
+                    borderWidth: 1
+                }
+            ]
+        };
+        new Chart(document.getElementById('annualPerformanceChart'), {
+            type: 'bar',
+            data: annualPerformanceData,
+            options: { ...CHART_DEFAULTS, plugins: { ...CHART_DEFAULTS.plugins, legend: { ...CHART_DEFAULTS.plugins.legend, position: 'top' } } }
+        });
+
+        const campaignPerformanceData = {
+            labels: ['紹介数'].map(wrapLabel),
+            datasets: [
+                {
+                    label: '38期 (10-12月)',
+                    data: [14],
+                    backgroundColor: '#FFD166',
+                    borderColor: '#FFD166',
+                    borderWidth: 1
+                },
+                {
+                    label: '39期 (10-12月)',
+                    data: [29],
+                    backgroundColor: '#06D6A0',
+                    borderColor: '#06D6A0',
+                    borderWidth: 1
+                }
+            ]
+        };
+        new Chart(document.getElementById('campaignPerformanceChart'), {
+            type: 'bar',
+            data: campaignPerformanceData,
+            options: { ...CHART_DEFAULTS, plugins: { ...CHART_DEFAULTS.plugins, legend: { ...CHART_DEFAULTS.plugins.legend, position: 'top' } } }
+        });
+
+        const monthlyTrendData = {
+            labels: ['10月', '11月', '12月', '1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月'].map(wrapLabel),
+            datasets: [
+                {
+                    label: '38期 紹介数',
+                    data: [7, 4, 3, 7, 4, 23, 11, 5, 4, 5, 7, 10],
+                    borderColor: '#FFD166',
+                    backgroundColor: '#FFD166',
+                    tension: 0.3,
+                    fill: false
+                },
+                {
+                    label: '39期 紹介数',
+                    data: [7, 5, 17, 17, 9, 5, 8, 7, 11, 3, 0, 2],
+                    borderColor: '#06D6A0',
+                    backgroundColor: '#06D6A0',
+                    tension: 0.3,
+                    fill: false
+                }
+            ]
+        };
+        new Chart(document.getElementById('monthlyTrendChart'), {
+            type: 'line',
+            data: monthlyTrendData,
+            options: { ...CHART_DEFAULTS, plugins: { ...CHART_DEFAULTS.plugins, legend: { ...CHART_DEFAULTS.plugins.legend, position: 'top' } } }
+        });
+
+        const compositionChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        title: (tooltipItems) => tooltipItems[0].label,
+                        label: (context) => {
+                            const label = context.label || '';
+                            const value = context.raw;
+                            const total = context.chart.getDatasetMeta(0).total;
+                            const percentage = ((value / total) * 100).toFixed(1);
+                            return `${label}: ${value}件 (${percentage}%)`;
                         }
-                    },
-                    legend: {
-                        display: false
-                    },
-                    title: {
-                        display: true,
-                        text: 'コスト削減額 vs 投資額'
                     }
                 }
             }
+        };
+
+        const compositionData38 = {
+            labels: ['紹介契約', 'その他契約'],
+            datasets: [{
+                data: [23, 178 - 23],
+                backgroundColor: ['#FFD166', '#E5E7EB'],
+                hoverBackgroundColor: ['#FBBF24', '#D1D5DB'],
+                borderColor: '#FFFFFF',
+                borderWidth: 4
+            }]
+        };
+        new Chart(document.getElementById('compositionChart38'), {
+            type: 'doughnut',
+            data: compositionData38,
+            options: compositionChartOptions
         });
-    }
-</script>
+
+        const compositionData39 = {
+            labels: ['紹介契約', 'その他契約'],
+            datasets: [{
+                data: [22, 157 - 22],
+                backgroundColor: ['#06D6A0', '#E5E7EB'],
+                hoverBackgroundColor: ['#10B981', '#D1D5DB'],
+                borderColor: '#FFFFFF',
+                borderWidth: 4
+            }]
+        };
+        new Chart(document.getElementById('compositionChart39'), {
+            type: 'doughnut',
+            data: compositionData39,
+            options: compositionChartOptions
+        });
+    </script>
 </body>
 </html>
 
