@@ -43,14 +43,14 @@
 
         <header class="text-center mb-12">
             <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">紹介料倍増キャンペーン</h1>
-            <p class="text-xl md:text-2xl text-[#FFD166]">効果検証インフォグラフィック</p>
+            <p class="text-xl md:text-2xl text-[#FFD166]">効果検証インフォグラフィック (最新版)</p>
         </header>
 
         <main class="space-y-8">
 
             <section class="bg-white rounded-2xl shadow-2xl p-6 md:p-8 text-center">
                 <h2 class="text-2xl font-bold text-[#118AB2] mb-4">キャンペーンの核心的成果</h2>
-                <p class="text-gray-600 mb-6">39期に実施した「紹介料倍増キャンペーン」は、紹介活動の効率を劇的に改善しました。</p>
+                <p class="text-gray-600 mb-6">39期に実施した「倍キャン」は、紹介活動の効率を劇的に改善しました。</p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="bg-gray-50 rounded-xl p-6 flex flex-col justify-center">
                         <p class="text-lg text-gray-500">キャンペーン期間中の</p>
@@ -70,7 +70,7 @@
             <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div class="bg-white rounded-2xl shadow-2xl p-6 md:p-8">
                     <h3 class="text-2xl font-bold mb-1">年間実績比較 (39期 vs 38期)</h3>
-                    <p class="text-gray-600 mb-4">紹介数と契約数は同水準を維持。活動の質が向上したことが伺えます。</p>
+                    <p class="text-gray-600 mb-4">紹介数は微増、契約数は3件増加。活動の質が着実に向上していることが伺えます。</p>
                     <div class="chart-container h-80 md:h-[350px]">
                         <canvas id="annualPerformanceChart"></canvas>
                     </div>
@@ -109,8 +109,8 @@
                         <div class="doughnut-chart-container">
                             <canvas id="compositionChart39"></canvas>
                         </div>
-                        <p class="mt-4 text-lg">紹介契約率: <span class="font-bold text-2xl text-[#06D6A0]">14.0%</span></p>
-                        <p class="text-gray-500 text-sm">(22件 / 総契約数 157件)</p>
+                        <p class="mt-4 text-lg">紹介契約率: <span class="font-bold text-2xl text-[#06D6A0]">16.6%</span></p>
+                        <p class="text-gray-500 text-sm">(26件 / 総契約数 157件)</p>
                     </div>
                 </div>
             </section>
@@ -206,7 +206,7 @@
                 },
                 {
                     label: '39期',
-                    data: [91, 22],
+                    data: [91, 26],
                     backgroundColor: '#06D6A0',
                     borderColor: '#06D6A0',
                     borderWidth: 1
@@ -312,7 +312,7 @@
         const compositionData39 = {
             labels: ['紹介契約', 'その他契約'],
             datasets: [{
-                data: [22, 157 - 22],
+                data: [26, 157 - 26],
                 backgroundColor: ['#06D6A0', '#E5E7EB'],
                 hoverBackgroundColor: ['#10B981', '#D1D5DB'],
                 borderColor: '#FFFFFF',
@@ -327,6 +327,7 @@
     </script>
 </body>
 </html>
+
 
 
 
